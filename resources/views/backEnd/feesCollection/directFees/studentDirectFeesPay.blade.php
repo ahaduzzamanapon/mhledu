@@ -47,7 +47,7 @@ $balance_fees = 0;
                       @endif 
                     </td>
                     <td>
-                        <button class="primary-btn small {{fees_payment_status($feesInstallment->amount, $feesInstallment->discount_amount , $feesInstallment->paid_amount , $feesInstallment->active_status )[1]}} text-white border-0">{{fees_payment_status($feesInstallment->amount,$feesInstallment->discount_amount,$feesInstallment->paid_amount,$feesInstallment->active_status )[0]}}</button> 
+                        <button class="primary-btn small {{fees_payment_status($feesInstallment->amount, $feesInstallment->discount_amount , $feesInstallment->paid_amount , $feesInstallment->active_status )[1]}} text-black border-0">{{fees_payment_status($feesInstallment->amount,$feesInstallment->discount_amount,$feesInstallment->paid_amount,$feesInstallment->active_status )[0]}}</button> 
                     </td>
                   <td>{{@dateConvert($feesInstallment->due_date)}}</td>
                   <td>
@@ -211,7 +211,7 @@ $balance_fees = 0;
                <td>{{$payment->paid_amount}}</td>
                <td>{{$this_installment}} </td>
                <td>
-                <button class="primary-btn small bg-success text-white border-0">@lang('fees.paid')</button>
+                <button class="primary-btn small bg-success text-black border-0">@lang('fees.paid')</button>
                 </td>
             </tr>  
            @endforeach

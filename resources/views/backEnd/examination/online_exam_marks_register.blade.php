@@ -68,12 +68,12 @@
 
                                         <td>
                                             @if (in_array(@$student->student_id, @$present_students))
-                                                <a class="primary-btn small bg-success text-white border-0"
+                                                <a class="primary-btn small bg-success text-black border-0"
                                                     href="{{ route('online_exam_marking', [@$online_exam_question->id, @$student->student_id]) }}">
                                                     @lang('exam.view_answer_marking')
                                                 </a>
                                             @else
-                                                <a class="primary-btn small bg-warning text-white border-0" href="#">
+                                                <a class="primary-btn small bg-warning text-black border-0" href="#">
                                                     @lang('student.absent')
                                                 </a>
                                             @endif

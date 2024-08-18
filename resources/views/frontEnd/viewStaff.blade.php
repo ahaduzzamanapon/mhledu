@@ -533,11 +533,11 @@
                 <td>{{$value->net_salary}}</td>
                 <td>
                     @if($value->payroll_status == 'G')
-                    <button class="primary-btn small bg-warning text-white border-0"> generated</button>
+                    <button class="primary-btn small bg-warning text-black border-0"> generated</button>
                     @endif
 
                     @if($value->payroll_status == 'P')
-                    <button class="primary-btn small bg-success text-white border-0"> paid </button>
+                    <button class="primary-btn small bg-success text-black border-0"> paid </button>
                     @endif
                 </td>
                 <td>
@@ -592,15 +592,15 @@
                         <td>
 
                             @if($value->approve_status == 'P')
-                            <button class="primary-btn small bg-warning text-white border-0"> pending</button>
+                            <button class="primary-btn small bg-warning text-black border-0"> pending</button>
                             @endif
 
                             @if($value->approve_status == 'A')
-                            <button class="primary-btn small bg-success text-white border-0"> Approved</button>
+                            <button class="primary-btn small bg-success text-black border-0"> Approved</button>
                             @endif
 
                             @if($value->approve_status == 'C')
-                            <button class="primary-btn small bg-danger text-white border-0"> Cancelled</button>
+                            <button class="primary-btn small bg-danger text-black border-0"> Cancelled</button>
                             @endif
 
                         </td>

@@ -81,7 +81,7 @@
                                     <label class="radio-img position-relative">
                                         <input name="theme" value="darkgray" type="radio">
                                         <img class="img-fluid" src="{{asset('public/backEnd//img/themes/light-theme.jpg')}}" alt="">
-                                        <p class="m-0 v-h-center text-white text-uppercase">Light Theme</p>
+                                        <p class="m-0 v-h-center text-black text-uppercase">Light Theme</p>
                                     </label>
                                 </div>
 
@@ -89,7 +89,7 @@
                                     <label class="radio-img position-relative">
                                         <input name="theme" value="darkgray" type="radio">
                                         <img class="img-fluid"  src="{{asset('public/backEnd//img/themes/dark-theme.jpg')}}" alt="">
-                                        <p class="m-0 v-h-center text-white text-uppercase">Dark Theme</p>
+                                        <p class="m-0 v-h-center text-black text-uppercase">Dark Theme</p>
                                     </label>
                                 </div>
                             </div>

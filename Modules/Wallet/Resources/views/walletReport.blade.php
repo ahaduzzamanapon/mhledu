@@ -97,11 +97,11 @@
                                             <td>{{@$walletReport->userName->full_name}}</td>
                                             <td>
                                                 @if ($walletReport->status == 'pending')
-                                                    <button class="primary-btn small bg-warning text-white border-0">@lang('common.pending')</button> 
+                                                    <button class="primary-btn small bg-warning text-black border-0">@lang('common.pending')</button> 
                                                 @elseif ($walletReport->status == 'approve')
-                                                    <button class="primary-btn small bg-success text-white border-0">@lang('wallet::wallet.approve')</button>
+                                                    <button class="primary-btn small bg-success text-black border-0">@lang('wallet::wallet.approve')</button>
                                                 @else
-                                                    <button class="primary-btn small bg-danger text-white border-0">@lang('wallet::wallet.reject')</button>
+                                                    <button class="primary-btn small bg-danger text-black border-0">@lang('wallet::wallet.reject')</button>
                                                 @endif
                                             </td>
                                             <td>{{dateConvert($walletReport->created_at)}}</td>

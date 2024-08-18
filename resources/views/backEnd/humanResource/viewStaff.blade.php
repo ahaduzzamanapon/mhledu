@@ -653,13 +653,13 @@
                                                         <td>
                                                             @if ($value->payroll_status == 'G')
                                                                 <button
-                                                                    class="primary-btn small bg-warning text-white border-0">
+                                                                    class="primary-btn small bg-warning text-black border-0">
                                                                     @lang('hr.generated')</button>
                                                             @endif
     
                                                             @if ($value->payroll_status == 'P')
                                                                 <button
-                                                                    class="primary-btn small bg-success text-white border-0">
+                                                                    class="primary-btn small bg-success text-black border-0">
                                                                     @lang('hr.paid') </button>
                                                             @endif
                                                         </td>
@@ -718,19 +718,19 @@
                                                                 <td>
                                                                     @if ($value->approve_status == 'P')
                                                                         <button
-                                                                            class="primary-btn small bg-warning text-white border-0">
+                                                                            class="primary-btn small bg-warning text-black border-0">
                                                                             @lang('common.pending')</button>
                                                                     @endif
     
                                                                     @if ($value->approve_status == 'A')
                                                                         <button
-                                                                            class="primary-btn small bg-success text-white border-0">
+                                                                            class="primary-btn small bg-success text-black border-0">
                                                                             @lang('common.approved')</button>
                                                                     @endif
     
                                                                     @if ($value->approve_status == 'C')
                                                                         <button
-                                                                            class="primary-btn small bg-danger text-white border-0">
+                                                                            class="primary-btn small bg-danger text-black border-0">
                                                                             @lang('hr.cancelled')</button>
                                                                     @endif
     

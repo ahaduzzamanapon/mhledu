@@ -51,16 +51,16 @@
                                     <td>
                                         @if ($walletAmount->status == 'pending')
                                             <button
-                                                class="primary-btn small bg-warning text-white border-0">@lang('common.pending')</button>
+                                                class="primary-btn small bg-warning text-black border-0">@lang('common.pending')</button>
                                         @elseif ($walletAmount->type == 'diposit' && $walletAmount->status == 'approve')
                                             <button
-                                                class="primary-btn small bg-success text-white border-0">@lang('wallet::wallet.approve')</button>
+                                                class="primary-btn small bg-success text-black border-0">@lang('wallet::wallet.approve')</button>
                                         @elseif ($walletAmount->status == 'reject')
                                             <button
-                                                class="primary-btn small bg-danger text-white border-0">@lang('wallet::wallet.reject')</button>
+                                                class="primary-btn small bg-danger text-black border-0">@lang('wallet::wallet.reject')</button>
                                         @elseif ($walletAmount->type == 'refund' && $walletAmount->status == 'approve')
                                             <button
-                                                class="primary-btn small bg-primary text-white border-0">@lang('wallet::wallet.refund')</button>
+                                                class="primary-btn small bg-primary text-black border-0">@lang('wallet::wallet.refund')</button>
                                         @endif
                                     </td>
                                     <td>{{ dateConvert($walletAmount->created_at) }}</td>

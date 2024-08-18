@@ -1128,13 +1128,13 @@
                                                             <td>
                                                                 @if ($balance_amount == 0)
                                                                     <button
-                                                                            class="primary-btn small bg-success text-white border-0">@lang('fees.paid')</button>
+                                                                            class="primary-btn small bg-success text-black border-0">@lang('fees.paid')</button>
                                                                 @elseif($paid != 0)
                                                                     <button
-                                                                            class="primary-btn small bg-warning text-white border-0">@lang('fees.partial')</button>
+                                                                            class="primary-btn small bg-warning text-black border-0">@lang('fees.partial')</button>
                                                                 @elseif($paid == 0)
                                                                     <button
-                                                                            class="primary-btn small bg-danger text-white border-0">@lang('fees.unpaid')</button>
+                                                                            class="primary-btn small bg-danger text-black border-0">@lang('fees.unpaid')</button>
                                                                 @endif
                                                             </td>
                                                             <td>
@@ -1271,19 +1271,19 @@
 
                                                             @if ($value->approve_status == 'P')
                                                                 <button
-                                                                        class="primary-btn small bg-warning text-white border-0">
+                                                                        class="primary-btn small bg-warning text-black border-0">
                                                                     @lang('common.pending')</button>
                                                             @endif
 
                                                             @if ($value->approve_status == 'A')
                                                                 <button
-                                                                        class="primary-btn small bg-success text-white border-0">
+                                                                        class="primary-btn small bg-success text-black border-0">
                                                                     @lang('common.approved')</button>
                                                             @endif
 
                                                             @if ($value->approve_status == 'C')
                                                                 <button
-                                                                        class="primary-btn small bg-danger text-white border-0">
+                                                                        class="primary-btn small bg-danger text-black border-0">
                                                                     @lang('common.cancelled')</button>
                                                             @endif
 

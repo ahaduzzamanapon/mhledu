@@ -168,7 +168,7 @@ $days = $days_between + 1;
                                                 @endif
 
                                                 @if($leaveDetails->approve_status == 'C')
-                                                    <button class="primary-btn small bg-danger text-white border-0">@lang('common.cancelled')</button>
+                                                    <button class="primary-btn small bg-danger text-black border-0">@lang('common.cancelled')</button>
                                                 @endif
                                             </div>
 

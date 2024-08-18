@@ -534,10 +534,10 @@
                                                     <strong>@lang('common.status') :</strong>
                                                     @if ($data->status == 0)
                                                         <button
-                                                            class="primary-btn small bg-danger text-white border-0">offline</button>
+                                                            class="primary-btn small bg-danger text-black border-0">offline</button>
                                                     @else
                                                         <button
-                                                            class="primary-btn small bg-success text-white border-0  tr-bg">@lang('common.online')</button>
+                                                            class="primary-btn small bg-success text-black border-0  tr-bg">@lang('common.online')</button>
                                                     @endif
                                                 </li>
                                             @else

@@ -687,11 +687,11 @@ class DatatableQueryController extends Controller
                 ->rawColumns(['date'])
                 ->addColumn('status', function ($row) {
                     if ($row->approve_status == 0) {
-                        $btn = '<button class="primary-btn small bg-warning text-white border-0">' . app('translator')->get('common.pending') . '</button>';
+                        $btn = '<button class="primary-btn small bg-warning text-black border-0">' . app('translator')->get('common.pending') . '</button>';
                     } elseif ($row->approve_status == 1) {
-                        $btn = '<button class="primary-btn small bg-success text-white border-0  tr-bg">' . app('translator')->get('common.approved') . '</button>';
+                        $btn = '<button class="primary-btn small bg-success text-black border-0  tr-bg">' . app('translator')->get('common.approved') . '</button>';
                     } elseif ($row->approve_status == 2) {
-                        $btn = '<button class="primary-btn small bg-danger text-white border-0  tr-bg">' . app('translator')->get('common.rejected') . '</button>';
+                        $btn = '<button class="primary-btn small bg-danger text-black border-0  tr-bg">' . app('translator')->get('common.rejected') . '</button>';
                     }
                     return $btn;
                 })
@@ -1625,11 +1625,11 @@ class DatatableQueryController extends Controller
             
                 ->addColumn('status', function ($row) {
                     if ($row->approve_status == 'P') {
-                    $btn = '<button class="primary-btn bg-warning text-white border-0 small tr-bg">' . app('translator')->get('common.pending') . '</button>';
+                    $btn = '<button class="primary-btn bg-warning text-black border-0 small tr-bg">' . app('translator')->get('common.pending') . '</button>';
                         } elseif ($row->approve_status == 'A') {
-                            $btn = '<button class="primary-btn bg-success text-white border-0 small tr-bg">' . app('translator')->get('common.approved') . '</button>';
+                            $btn = '<button class="primary-btn bg-success text-black border-0 small tr-bg">' . app('translator')->get('common.approved') . '</button>';
                         } elseif ($row->approve_status == 'C') {
-                            $btn = '<button class="primary-btn small bg-danger text-white border-0">' . app('translator')->get('common.cancelled') . '</button>';
+                            $btn = '<button class="primary-btn small bg-danger text-black border-0">' . app('translator')->get('common.cancelled') . '</button>';
                         }
                     return $btn;
                     
@@ -1677,11 +1677,11 @@ class DatatableQueryController extends Controller
             
                 ->addColumn('status', function ($row) {
                     if ($row->approve_status == 'P') {
-                    $btn = '<button class="primary-btn bg-warning text-white border-0 small tr-bg">' . app('translator')->get('common.pending') . '</button>';
+                    $btn = '<button class="primary-btn bg-warning text-black border-0 small tr-bg">' . app('translator')->get('common.pending') . '</button>';
                         } elseif ($row->approve_status == 'A') {
-                            $btn = '<button class="primary-btn bg-success text-white border-0 small tr-bg">' . app('translator')->get('common.approved') . '</button>';
+                            $btn = '<button class="primary-btn bg-success text-black border-0 small tr-bg">' . app('translator')->get('common.approved') . '</button>';
                         } elseif ($row->approve_status == 'C') {
-                            $btn = '<button class="primary-btn small bg-danger text-white border-0">' . app('translator')->get('common.cancelled') . '</button>';
+                            $btn = '<button class="primary-btn small bg-danger text-black border-0">' . app('translator')->get('common.cancelled') . '</button>';
                         }
                     return $btn;
                     
@@ -1829,12 +1829,12 @@ class DatatableQueryController extends Controller
                     $end=new DateTime($row->due_date);
                     if($row->issue_status == 'I'){
                         if($end<$now){
-                            $btn = '<button class="primary-btn small bg-danger text-white border-0">' .__('library.expired'). '</button>' ;
+                            $btn = '<button class="primary-btn small bg-danger text-black border-0">' .__('library.expired'). '</button>' ;
                           }else{
-                            $btn = '<button class="primary-btn small bg-success text-white border-0">' .__('library.issued'). '</button>' ;
+                            $btn = '<button class="primary-btn small bg-success text-black border-0">' .__('library.issued'). '</button>' ;
                           }
                     }else{
-                        $btn = '<button class="primary-btn small bg-success text-white border-0">'. __('library.returned').'</button>' ;
+                        $btn = '<button class="primary-btn small bg-success text-black border-0">'. __('library.returned').'</button>' ;
                     }
                     return $btn;
                     
@@ -1902,16 +1902,16 @@ class DatatableQueryController extends Controller
                 })
                 ->addColumn('status', function ($row) {
                     if($row->paid_status == 'P'){
-                       $btn = '<button class="primary-btn small bg-success text-white border-0">'.__('inventory.paid').'</button>' ;
+                       $btn = '<button class="primary-btn small bg-success text-black border-0">'.__('inventory.paid').'</button>' ;
                     }                  
                     elseif($row->paid_status == 'PP'){
-                       $btn = '<button class="primary-btn small bg-warning text-white border-0">'.__('inventory.partial').'</button>' ;
+                       $btn = '<button class="primary-btn small bg-warning text-black border-0">'.__('inventory.partial').'</button>' ;
                     }
                     elseif($row->paid_status == 'U'){
-                       $btn = '<button class="primary-btn small bg-danger text-white border-0">'.__('inventory.unpaid').'</button>' ;
+                       $btn = '<button class="primary-btn small bg-danger text-black border-0">'.__('inventory.unpaid').'</button>' ;
                     }
                     else{
-                       $btn = '<button class="primary-btn small bg-info text-white border-0">'.__('inventory.refund').'</button>' ;
+                       $btn = '<button class="primary-btn small bg-info text-black border-0">'.__('inventory.refund').'</button>' ;
                     }
                     
                     return $btn;

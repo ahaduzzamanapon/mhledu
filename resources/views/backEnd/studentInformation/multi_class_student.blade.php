@@ -149,7 +149,7 @@
                                         <div class="student_rec_card">
                                             <div
                                                 class="student_rec_header d-flex align-items-center justify-content-between mb-3">
-                                                <h5 class="mb-0 text-white">{{ $student->full_name }}
+                                                <h5 class="mb-0 text-black">{{ $student->full_name }}
                                                     {{ $student->admission_no ? '(' . $student->admission_no . ')' : '' }}</h5>
                                                 <button class="primary-btn small fix-gr-bg addMore" type="button"
                                                     data-student_id="{{ $student->id }}"><i class="ti-plus"></i>

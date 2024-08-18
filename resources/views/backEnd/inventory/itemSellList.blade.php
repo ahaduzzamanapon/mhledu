@@ -106,13 +106,13 @@
                                         <td>{{number_format( (float) $value->total_due, 2, '.', '')}}</td>
                                         <td>
                                             @if($value->paid_status == 'P')
-                                            <button class="primary-btn small bg-success text-white border-0">@lang('inventory.paid')</button>
+                                            <button class="primary-btn small bg-success text-black border-0">@lang('inventory.paid')</button>
                                             @elseif($value->paid_status == 'PP')
-                                            <button class="primary-btn small bg-warning text-white border-0">@lang('inventory.partial')</button>
+                                            <button class="primary-btn small bg-warning text-black border-0">@lang('inventory.partial')</button>
                                             @elseif($value->paid_status == 'U')
-                                            <button class="primary-btn small bg-danger text-white border-0">@lang('inventory.unpaid')</button>
+                                            <button class="primary-btn small bg-danger text-black border-0">@lang('inventory.unpaid')</button>
                                             @else
-                                            <button class="primary-btn small bg-info text-white border-0">@lang('inventory.refund')</button>
+                                            <button class="primary-btn small bg-info text-black border-0">@lang('inventory.refund')</button>
                                             @endif
                                         </td>
                                         <td>

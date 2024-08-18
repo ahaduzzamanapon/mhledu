@@ -1079,9 +1079,9 @@ class SmOnlineExamController extends Controller
                 })
                 ->addColumn('status_button', function ($row) {
                     if ($row->status == 0) {
-                        $btn = '<button class="primary-btn small bg-warning text-white border-0">' . __('common.pending') . '</button>';
+                        $btn = '<button class="primary-btn small bg-warning text-black border-0">' . __('common.pending') . '</button>';
                     } else {
-                        $btn = '<button class="primary-btn small bg-success text-white border-0">' . __('exam.published') . '</button>';
+                        $btn = '<button class="primary-btn small bg-success text-black border-0">' . __('exam.published') . '</button>';
                     }
                     return $btn;
                 })

@@ -215,10 +215,10 @@
                                     <td>
                                         @if(@$student->attendance_type == 'P')
                                         <button
-                                            class="primary-btn small bg-success text-white border-0">@lang('student.present')</button>
+                                            class="primary-btn small bg-success text-black border-0">@lang('student.present')</button>
                                         @else
                                         <button
-                                            class="primary-btn small bg-danger text-white border-0">@lang('student.absent')</button>
+                                            class="primary-btn small bg-danger text-black border-0">@lang('student.absent')</button>
                                         @endif
                                     </td>
                                 </tr>
@@ -268,10 +268,10 @@
                                     <td>
                                         @if(@$student->attendance_type == 'P')
                                         <button
-                                            class="primary-btn small bg-success text-white border-0">@lang('student.present')</button>
+                                            class="primary-btn small bg-success text-black border-0">@lang('student.present')</button>
                                         @else
                                         <button
-                                            class="primary-btn small bg-danger text-white border-0">@lang('student.absent')</button>
+                                            class="primary-btn small bg-danger text-black border-0">@lang('student.absent')</button>
                                         @endif
                                     </td>
                                 </tr>

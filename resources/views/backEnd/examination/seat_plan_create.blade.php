@@ -258,7 +258,7 @@
                             </td>
                             <td class="text-right">
                                 <button class="primary-btn icon-only fix-gr-bg" type="button">
-                                    <span class="ti-trash text-white"></span>
+                                    <span class="ti-trash text-black"></span>
                                 </button>
                             </td>
                         </tr>
@@ -361,7 +361,7 @@
                                     </td>
                                     <td class="text-right">
                                         <button class="primary-btn icon-only fix-gr-bg" type="button">
-                                        <span class="ti-trash text-white" 
+                                        <span class="ti-trash text-black" 
                                         @if($i != 1)
                                         onclick="deleteExamRow({{$i}})"
                                         @endif

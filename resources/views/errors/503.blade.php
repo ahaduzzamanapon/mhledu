@@ -471,7 +471,7 @@ if(! (config('app.app_sync') && Storage::exists('.app_resetting')) ){
 
             <div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
 
-            <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-white">
+            <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-black">
                 Demo resets every 4 hours. Feel free to test all the features before purchasing, keep in mind that some features are disabled. As there are many users checking demo simultaneously, so if you found any inconsistency then please try demo after sometime.
                 </p>
 
@@ -495,9 +495,9 @@ if(! (config('app.app_sync') && Storage::exists('.app_resetting')) ){
 
                     <div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
 
-                    <h4 class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-white">
+                    <h4 class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-black">
                         {{$setting->title}}</h4>
-                    <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-white">
+                    <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-black">
                         {{$setting->sub_title}}</p>
 
                   

@@ -23,7 +23,7 @@
 
                             <a class="primary-btn icon-only fix-gr-bg" data-toggle="modal"
                                data-target="#deleteTimelineModal{{$timeline->id}}" href="#">
-                                <span class="ti-trash text-white"></span>
+                                <span class="ti-trash text-black"></span>
                             </a>
 
                             @if (file_exists($timeline->file))

@@ -202,7 +202,7 @@
                             </td>
                             <td class="text-right">
                                 <button class="primary-btn icon-only bg-danger">
-                                    <span class="ti-minus text-white"></span>
+                                    <span class="ti-minus text-black"></span>
                                 </button>
                                 <button class="primary-btn icon-only fix-gr-bg ml-10">
                                     <span class="ti-plus"></span>

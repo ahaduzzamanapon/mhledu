@@ -76,7 +76,7 @@
                                             {!! Form::open(['route'=>'saveAssignedSubject', 'method'=>'POST', 'class'=>'w-100 d-flex', 'id'=>'form_'.$class->id]) !!}
                                                 <div class="student_rec_card">
                                                     <div class="student_rec_header d-flex align-items-center justify-content-between mb-3">
-                                                        <h5 class="mb-0 text-white">{{$class->class_name}}</h5>
+                                                        <h5 class="mb-0 text-black">{{$class->class_name}}</h5>
                                                         <button class="primary-btn small fix-gr-bg" onclick="addMoreGlobalSubject({{$class->id}})" type="button" data-class_id="{{$class->id}}"><i class="ti-plus"></i> Add</button>
                                                         
                                                          <a class="modalLink primary-btn small fix-gr-bg" data-modal-size="modal-lg" title="{{$class->class_name}} @lang('study.study_material')" href="{{url('global-upload-content-modal?global_class_id='.$class->id)}}">@lang('study.study_material')</a>

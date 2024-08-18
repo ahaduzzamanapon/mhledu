@@ -245,11 +245,11 @@ $record = $student;
                                       </td>
                                       <td>
                                           @if($feesInstallment->active_status == 1)
-                                          <button class="primary-btn small bg-success text-white border-0">@lang('fees.paid')</button>
+                                          <button class="primary-btn small bg-success text-black border-0">@lang('fees.paid')</button>
                                           @elseif( $feesInstallment->active_status == 2) 
-                                          <button class="primary-btn small bg-warning text-white border-0">@lang('fees.partial')</button>
+                                          <button class="primary-btn small bg-warning text-black border-0">@lang('fees.partial')</button>
                                           @else 
-                                          <button class="primary-btn small bg-danger text-white border-0">@lang('fees.unpaid')</button>
+                                          <button class="primary-btn small bg-danger text-black border-0">@lang('fees.unpaid')</button>
                                           @endif 
                                       </td>
                                     <td>{{@dateConvert($feesInstallment->due_date)}}</td>
@@ -518,11 +518,11 @@ $record = $student;
                                       </td>
                                       <td>
                                           @if($feesInstallment->active_status == 1)
-                                          <button class="primary-btn small bg-success text-white border-0">@lang('fees.paid')</button>
+                                          <button class="primary-btn small bg-success text-black border-0">@lang('fees.paid')</button>
                                           @elseif( $feesInstallment->active_status == 2) 
-                                          <button class="primary-btn small bg-warning text-white border-0">@lang('fees.partial')</button>
+                                          <button class="primary-btn small bg-warning text-black border-0">@lang('fees.partial')</button>
                                           @else 
-                                          <button class="primary-btn small bg-danger text-white border-0">@lang('fees.unpaid')</button>
+                                          <button class="primary-btn small bg-danger text-black border-0">@lang('fees.unpaid')</button>
                                           @endif 
                                       </td>
                                     <td>{{@dateConvert($feesInstallment->due_date)}}</td>
@@ -859,11 +859,11 @@ $record = $student;
                                             $balance_amount = number_format($rest_amount+$fine, 2, '.', '');
                                         @endphp
                                         @if($balance_amount == 0)
-                                            <button class="primary-btn small bg-success text-white border-0">@lang('fees.paid')</button>
+                                            <button class="primary-btn small bg-success text-black border-0">@lang('fees.paid')</button>
                                         @elseif($paid != 0)
-                                            <button class="primary-btn small bg-warning text-white border-0">@lang('fees.partial')</button>
+                                            <button class="primary-btn small bg-warning text-black border-0">@lang('fees.partial')</button>
                                         @elseif($paid == 0)
-                                            <button class="primary-btn small bg-danger text-white border-0">@lang('fees.unpaid')</button>
+                                            <button class="primary-btn small bg-danger text-black border-0">@lang('fees.unpaid')</button>
                                         @endif
                                     </td>
                                     <td>{{$fees_assigned->feesGroupMaster->amount}}</td>

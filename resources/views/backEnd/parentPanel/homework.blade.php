@@ -114,13 +114,13 @@
                                                         @if($student_result != "")
     
                                                             @if($student_result->complete_status == "C")
-                                                                <button class="primary-btn small bg-success text-white border-0">@lang('homework.completed')</button>
+                                                                <button class="primary-btn small bg-success text-black border-0">@lang('homework.completed')</button>
                                                             @else
-                                                                <button class="primary-btn small bg-warning text-white border-0">@lang('homework.incompleted')</button>
+                                                                <button class="primary-btn small bg-warning text-black border-0">@lang('homework.incompleted')</button>
                                                             @endif
     
                                                         @else
-                                                            <button class="primary-btn small bg-warning text-white border-0">@lang('homework.incompleted')</button>
+                                                            <button class="primary-btn small bg-warning text-black border-0">@lang('homework.incompleted')</button>
                                                         @endif
     
                                                     </td>

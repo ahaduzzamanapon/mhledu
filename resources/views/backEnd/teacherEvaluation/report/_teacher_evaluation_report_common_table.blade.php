@@ -75,10 +75,10 @@
                         <td>
                             @if ($teacherEvaluation->status == 0)
                                 <button
-                                    class="primary-btn small bg-danger text-white border-0">@lang('teacherEvaluation.pending')</button>
+                                    class="primary-btn small bg-danger text-black border-0">@lang('teacherEvaluation.pending')</button>
                             @else
                                 <button
-                                    class="primary-btn small bg-success text-white border-0">@lang('teacherEvaluation.approved')</button>
+                                    class="primary-btn small bg-success text-black border-0">@lang('teacherEvaluation.approved')</button>
                             @endif
                         </td>
                         <td>
@@ -145,7 +145,7 @@
                             {{ $teacherEvaluation->comment }}</td>
                         <td>
                             <button
-                                class="primary-btn small bg-danger text-white border-0">@lang('teacherEvaluation.pending')</button>
+                                class="primary-btn small bg-danger text-black border-0">@lang('teacherEvaluation.pending')</button>
                         </td>
                         <td>
                             <a class="primary-btn small fix-gr-bg"

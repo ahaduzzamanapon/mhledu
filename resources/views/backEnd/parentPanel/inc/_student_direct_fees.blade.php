@@ -42,7 +42,7 @@
                         </td>
                         <td>
                             <button
-                                class="primary-btn small {{ fees_payment_status($feesInstallment->amount, $feesInstallment->discount_amount, $feesInstallment->paid_amount, $feesInstallment->active_status)[1] }} text-white border-0">{{ fees_payment_status($feesInstallment->amount, $feesInstallment->discount_amount, $feesInstallment->paid_amount, $feesInstallment->active_status)[0] }}
+                                class="primary-btn small {{ fees_payment_status($feesInstallment->amount, $feesInstallment->discount_amount, $feesInstallment->paid_amount, $feesInstallment->active_status)[1] }} text-black border-0">{{ fees_payment_status($feesInstallment->amount, $feesInstallment->discount_amount, $feesInstallment->paid_amount, $feesInstallment->active_status)[0] }}
                             </button>
                         </td>
                         <td>{{ @dateConvert($feesInstallment->due_date) }}</td>

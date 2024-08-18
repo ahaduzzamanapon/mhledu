@@ -262,17 +262,17 @@ class WalletController extends Controller
             })
             ->addColumn('t_status', function ($row) {
                 if ($row->status == "pending") {
-                    $btn = '<button class="primary-btn small bg-warning text-white border-0">' . app('translator')->get('common.pending') . '</button>';
+                    $btn = '<button class="primary-btn small bg-warning text-black border-0">' . app('translator')->get('common.pending') . '</button>';
                 } elseif ($row->status == "approve") {
-                    $btn = '<button class="primary-btn small bg-success text-white border-0">' . app('translator')->get('wallet::wallet.approve') . '</button>';
+                    $btn = '<button class="primary-btn small bg-success text-black border-0">' . app('translator')->get('wallet::wallet.approve') . '</button>';
                 } elseif ($row->status == "reject") {
-                    $btn = '<button class="primary-btn small bg-danger text-white border-0">' . app('translator')->get('wallet::wallet.reject') . '</button>';
+                    $btn = '<button class="primary-btn small bg-danger text-black border-0">' . app('translator')->get('wallet::wallet.reject') . '</button>';
                 }
                 elseif ($row->status == "refund") {
-                    $btn = '<button class="primary-btn small bg-primary text-white border-0">' . app('translator')->get('wallet::wallet.refund') . '</button>';
+                    $btn = '<button class="primary-btn small bg-primary text-black border-0">' . app('translator')->get('wallet::wallet.refund') . '</button>';
                 }
                 else {
-                    $btn = '<button class="primary-btn small bg-primary text-white border-0">' . app('translator')->get('accounts.expense') . '</button>';
+                    $btn = '<button class="primary-btn small bg-primary text-black border-0">' . app('translator')->get('accounts.expense') . '</button>';
                 }
                 return $btn;
             })
@@ -339,11 +339,11 @@ class WalletController extends Controller
             })
             ->addColumn('t_status', function ($row) {
                 if ($row->status == "pending") {
-                    $btn = '<button class="primary-btn small bg-warning text-white border-0">' . app('translator')->get('common.pending') . '</button>';
+                    $btn = '<button class="primary-btn small bg-warning text-black border-0">' . app('translator')->get('common.pending') . '</button>';
                 } elseif ($row->status == "approve") {
-                    $btn = '<button class="primary-btn small bg-success text-white border-0">' . app('translator')->get('wallet::wallet.approved') . '</button>';
+                    $btn = '<button class="primary-btn small bg-success text-black border-0">' . app('translator')->get('wallet::wallet.approved') . '</button>';
                 } else {
-                    $btn = '<button class="primary-btn small bg-danger text-white border-0">' . app('translator')->get('wallet::wallet.rejecred') . '</button>';
+                    $btn = '<button class="primary-btn small bg-danger text-black border-0">' . app('translator')->get('wallet::wallet.rejecred') . '</button>';
                 }
                 return $btn;
             })
@@ -640,11 +640,11 @@ class WalletController extends Controller
                         ->addColumn('walletStatus', function($row){
                             $btn = '';
                             if ($row->status == 'pending'){
-                                $btn = '<button class="primary-btn small bg-warning text-white border-0">' . __('common.pending') . '</button>';
+                                $btn = '<button class="primary-btn small bg-warning text-black border-0">' . __('common.pending') . '</button>';
                             } elseif ($row->status == 'approve'){
-                                $btn = '<button class="primary-btn small bg-success text-white border-0" style="cursor:default">' . __('wallet::wallet.approved') . '</button>';
+                                $btn = '<button class="primary-btn small bg-success text-black border-0" style="cursor:default">' . __('wallet::wallet.approved') . '</button>';
                             } else{
-                                $btn = '<button class="primary-btn small bg-danger text-white border-0" style="cursor:default">' . __('wallet::wallet.rejected') . '</button>';
+                                $btn = '<button class="primary-btn small bg-danger text-black border-0" style="cursor:default">' . __('wallet::wallet.rejected') . '</button>';
                             }
                             return $btn;
                         })

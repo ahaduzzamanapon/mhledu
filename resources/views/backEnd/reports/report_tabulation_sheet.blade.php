@@ -200,7 +200,7 @@ Tabulation Report
                                                     <td>{{$row->average_mark}} </td>
                                                     <td>{{$row->gpa_point}} </td> 
                                                     <td> 
-                                                        <button class="primary-btn small bg-success text-white border-0">Pass</button>
+                                                        <button class="primary-btn small bg-success text-black border-0">Pass</button>
                                                     </td>
                                                 </tr> 
 

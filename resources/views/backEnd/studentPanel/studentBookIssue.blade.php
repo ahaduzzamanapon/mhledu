@@ -70,12 +70,12 @@
                                     @endphp
                                     @if($value->issue_status == 'I')
                                         @if($end<$now)
-                                            <button class="primary-btn small bg-danger text-white border-0">@lang('library.expired')</button>
+                                            <button class="primary-btn small bg-danger text-black border-0">@lang('library.expired')</button>
                                         @else
-                                            <button class="primary-btn small bg-success text-white border-0">@lang('library.issued')</button>
+                                            <button class="primary-btn small bg-success text-black border-0">@lang('library.issued')</button>
                                         @endif
                                     @elseif ($value->issue_status == 'R')
-                                        <button class="primary-btn small bg-success text-white border-0">@lang('library.returned')</button>
+                                        <button class="primary-btn small bg-success text-black border-0">@lang('library.returned')</button>
                                     @endif
                                 </td>
                             </tr>

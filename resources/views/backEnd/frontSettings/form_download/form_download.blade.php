@@ -259,12 +259,12 @@
                                                 <td>{{ date('m/d/Y', strtotime(@$value->publish_date)) }}</td>
                                                 <td>
                                                     @if (@$value->show_public == 1)
-                                                        <button class="primary-btn bg-success text-white border-0 small tr-bg">
+                                                        <button class="primary-btn bg-success text-black border-0 small tr-bg">
                                                             @lang('front_settings.shown')
                                                         </button>
                                                     @endif
                                                     @if (@$value->show_public == 0)
-                                                        <button class="primary-btn small bg-danger text-white border-0">
+                                                        <button class="primary-btn small bg-danger text-black border-0">
                                                             @lang('front_settings.not_shown')
                                                         </button>
                                                     @endif

@@ -372,7 +372,7 @@
                                                     <td>{{ $value->quantity }}</td>
                                                     <td>
                                                         @if ($value->issue_status == 'I')
-                                                            <button class="primary-btn small bg-success text-white border-0">
+                                                            <button class="primary-btn small bg-success text-black border-0">
                                                                 @lang('inventory.issued')</button>
                                                         @else
                                                             @php
@@ -398,11 +398,11 @@
                                                         <td>{{ $value->quantity }}</td>
                                                         <td>
                                                             @if ($value->issue_status == 'I')
-                                                                <button class="primary-btn small bg-success text-white border-0">
+                                                                <button class="primary-btn small bg-success text-black border-0">
                                                                     @lang('inventory.issued')</button>
                                                             @else
                                                                 <button
-                                                                    class="primary-btn small bg-primary text-white border-0">@lang('inventory.returned')</button>
+                                                                    class="primary-btn small bg-primary text-black border-0">@lang('inventory.returned')</button>
                                                             @endif
                                                         </td> -->
     

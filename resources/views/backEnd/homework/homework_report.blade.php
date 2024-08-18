@@ -235,7 +235,7 @@
                                                     <td>{{ $report['evaluation_date'] }}</td>
                                                     <td>{{ $report['evaluated_by'] }}</td>
                                                     <td><button
-                                                            class="primary-btn small {{ $report['status'] == 'Completed' ? 'bg-success' : 'bg-danger' }} text-white border-0">{{ $report['status'] }}</button>
+                                                            class="primary-btn small {{ $report['status'] == 'Completed' ? 'bg-success' : 'bg-danger' }} text-black border-0">{{ $report['status'] }}</button>
                                                     </td>
                                                     <td>
                                                         <x-drop-down>

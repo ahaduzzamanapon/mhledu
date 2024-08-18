@@ -1369,12 +1369,12 @@ class FeesController extends Controller
                         $paid_amount = $row->Tpaidamount;
                         $balance = $amount + $fine - ($paid_amount + $weaver);
                         if($balance == 0){
-                            $btn = '<button class="primary-btn small bg-success text-white border-0">' . __('fees.paid') . '</button>';
+                            $btn = '<button class="primary-btn small bg-success text-black border-0">' . __('fees.paid') . '</button>';
                         }else{
                             if($paid_amount > 0){
-                                $btn = '<button class="primary-btn small bg-warning text-white border-0">' . __('fees.partial') . '</button>';
+                                $btn = '<button class="primary-btn small bg-warning text-black border-0">' . __('fees.partial') . '</button>';
                             }else{
-                                $btn = '<button class="primary-btn small bg-danger text-white border-0">' . __('fees.unpaid') . '</button>';
+                                $btn = '<button class="primary-btn small bg-danger text-black border-0">' . __('fees.unpaid') . '</button>';
                             }
                         }
                         return $btn;

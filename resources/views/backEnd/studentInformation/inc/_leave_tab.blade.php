@@ -29,17 +29,17 @@
                                                 {{ $value->apply_date != '' ? dateConvert($value->apply_date) : '' }}</td>
                                             <td class="nowrap">
                                                 @if ($value->approve_status == 'P')
-                                                    <button class="primary-btn small bg-warning text-white border-0">
+                                                    <button class="primary-btn small bg-warning text-black border-0">
                                                         @lang('student.pending')</button>
                                                 @endif
 
                                                 @if ($value->approve_status == 'A')
-                                                    <button class="primary-btn small bg-success text-white border-0">
+                                                    <button class="primary-btn small bg-success text-black border-0">
                                                         @lang('student.approved')</button>
                                                 @endif
 
                                                 @if ($value->approve_status == 'C')
-                                                    <button class="primary-btn small bg-danger text-white border-0">
+                                                    <button class="primary-btn small bg-danger text-black border-0">
                                                         @lang('common.cancelled')</button>
                                                 @endif
                                             </td>

@@ -171,9 +171,9 @@
                                     <td>{{$menu->slug}}</td>
                                     <td>
                                         @if ($menu->active_status == 1)
-                                            <button class="primary-btn small bg-success text-white border-0">@lang('front_settings.active')</button>
+                                            <button class="primary-btn small bg-success text-black border-0">@lang('front_settings.active')</button>
                                         @else
-                                        <button class="primary-btn small bg-warning text-white border-0">@lang('front_settings.inactive')</button>
+                                        <button class="primary-btn small bg-warning text-black border-0">@lang('front_settings.inactive')</button>
                                         @endif
                                     <td>
                                         <x-drop-down/>

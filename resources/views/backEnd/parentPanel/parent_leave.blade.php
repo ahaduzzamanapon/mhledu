@@ -72,12 +72,12 @@
                                         </td>
                                         <td>
                                             @if($apply_leave->approve_status == 'P')
-                                                <button class="primary-btn small bg-warning text-white border-0 tr-bg">@lang('common.pending')</button>@endif
+                                                <button class="primary-btn small bg-warning text-black border-0 tr-bg">@lang('common.pending')</button>@endif
                                             @if($apply_leave->approve_status == 'A')
-                                                <button class="primary-btn small bg-success text-white border-0 tr-bg">@lang('common.approved')</button>
+                                                <button class="primary-btn small bg-success text-black border-0 tr-bg">@lang('common.approved')</button>
                                             @endif
                                             @if($apply_leave->approve_status == 'C')
-                                                <button class="primary-btn small bg-danger  text-white border-0 tr-bg">@lang('leave.cancelled')</button>
+                                                <button class="primary-btn small bg-danger  text-black border-0 tr-bg">@lang('leave.cancelled')</button>
                                             @endif
                                         </td>
                                     </tr>

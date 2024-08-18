@@ -81,15 +81,15 @@
                                                             </form>
                                                         @else
                                                             @if($user->connectionPending())
-                                                                <p class="single-icon primary-btn small fix-gr-bg text-white">
+                                                                <p class="single-icon primary-btn small fix-gr-bg text-black">
                                                                     <span class="ti-timer pr-2"></span>
                                                                 </p>
                                                             @elseif($user->connectionSuccess())
-                                                                <p class="single-icon primary-btn small fix-gr-bg text-white">
+                                                                <p class="single-icon primary-btn small fix-gr-bg text-black">
                                                                     <span class="ti-check pr-2"></span>
                                                                 </p>
                                                             @else
-                                                                <p class="single-icon primary-btn small fix-gr-bg text-white">
+                                                                <p class="single-icon primary-btn small fix-gr-bg text-black">
                                                                     <span class="ti-close pr-2"></span>
                                                                 </p>
                                                             @endif

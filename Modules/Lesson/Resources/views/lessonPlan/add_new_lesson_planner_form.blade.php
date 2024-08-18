@@ -96,7 +96,7 @@
                     </div>
                 @endif
                 <div class="col-sm-2 col-2 mt-30-lg">
-                    <a class="primary-btn icon-only fix-gr-bg text-white" id="addRowTopic">
+                    <a class="primary-btn icon-only fix-gr-bg text-black" id="addRowTopic">
                         <span class="ti-plus"></span>
                     </a>
                 </div>

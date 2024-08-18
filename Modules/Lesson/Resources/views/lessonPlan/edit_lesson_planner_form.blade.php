@@ -48,7 +48,7 @@
             @endif
             <div class="row">
                 <div class="col-lg-12 text-right">
-                    <a class="primary-btn icon-only fix-gr-bg text-white" id="addRowEditTopic">
+                    <a class="primary-btn icon-only fix-gr-bg text-black" id="addRowEditTopic">
                         <span class="ti-plus" ></span>
                     </a>
                 </div>

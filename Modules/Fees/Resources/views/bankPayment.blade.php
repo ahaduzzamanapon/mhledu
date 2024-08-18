@@ -209,13 +209,13 @@
                                                         <td>
                                                             @if ($bank_payment->paid_status == 'pending')
                                                                 <button
-                                                                    class="primary-btn small bg-warning text-white border-0">@lang('common.pending')</button>
+                                                                    class="primary-btn small bg-warning text-black border-0">@lang('common.pending')</button>
                                                             @elseif($bank_payment->paid_status == 'approve')
                                                                 <button
-                                                                    class="primary-btn small bg-success text-white border-0  tr-bg">@lang('common.approved')</button>
+                                                                    class="primary-btn small bg-success text-black border-0  tr-bg">@lang('common.approved')</button>
                                                             @else
                                                                 <button
-                                                                    class="primary-btn small bg-danger text-white border-0">@lang('common.reject')</button>
+                                                                    class="primary-btn small bg-danger text-black border-0">@lang('common.reject')</button>
                                                             @endif
                                                         </td>
                                                         <td>

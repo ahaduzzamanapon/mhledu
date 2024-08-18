@@ -188,7 +188,7 @@
                                                 @if(@$is_absent_check->attendance_type == 'P')
                                                     <button class="primary-btn small fix-gr-bg" type="button">@lang('exam.present')</button>
                                                 @else
-                                                    <button class="primary-btn small bg-danger text-white border-0" type="button">@lang('exam.absent')</button>
+                                                    <button class="primary-btn small bg-danger text-black border-0" type="button">@lang('exam.absent')</button>
                                                 @endif
                                             </div>
 

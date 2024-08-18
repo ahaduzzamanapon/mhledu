@@ -286,11 +286,11 @@
                                 @endphp
                                 
                                 @if($balance_amount == 0)
-                                    <button class="primary-btn small bg-success text-white border-0">@lang('reports.paid')</button>
+                                    <button class="primary-btn small bg-success text-black border-0">@lang('reports.paid')</button>
                                 @elseif($paid != 0)
-                                    <button class="primary-btn small bg-warning text-white border-0">@lang('reports.partial')</button>
+                                    <button class="primary-btn small bg-warning text-black border-0">@lang('reports.partial')</button>
                                 @elseif($paid == 0)
-                                    <button class="primary-btn small bg-danger text-white border-0">@lang('reports.unpaid')</button>
+                                    <button class="primary-btn small bg-danger text-black border-0">@lang('reports.unpaid')</button>
                                 @endif
                             </td>
                             <td>{{$fees_assigned->feesGroupMaster->amount}}</td>

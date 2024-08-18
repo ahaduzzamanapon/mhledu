@@ -466,16 +466,16 @@
 
                     <div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
 
-                    <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-white">
+                    <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal text-black">
                         Permission Denied, you have no permission to acess this page !               </p>
 
                     <a href="{{url('/admin-dashboard')}}">
-                        <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg text-white">
+                        <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg text-black">
                             Go To Dashboard
                         </button>
                     </a>
                     <a href="{{ URL::previous() }}">
-                        <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg text-white">
+                        <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg text-black">
                             Go Back
                         </button>
                     </a>

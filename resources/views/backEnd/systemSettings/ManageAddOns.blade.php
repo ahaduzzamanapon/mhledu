@@ -195,13 +195,13 @@
                                                     </td>
                                                     <td>
                                                         @if (moduleStatusCheck($module->name) == false)
-                                                            <a class="primary-btn small {{ $module->name }} bg-warning text-white border-0"
+                                                            <a class="primary-btn small {{ $module->name }} bg-warning text-black border-0"
                                                                 href="#">@lang('common.disable')</a>
                                                         @elseif(moduleStatusCheck($module->name) == true)
-                                                            <a class="primary-btn small {{ $module->name }} bg-success text-white border-0"
+                                                            <a class="primary-btn small {{ $module->name }} bg-success text-black border-0"
                                                                 href="#">@lang('common.active') </a>
                                                         @else
-                                                            <a class="primary-btn small {{ $module->name }} bg-success text-white border-0"
+                                                            <a class="primary-btn small {{ $module->name }} bg-success text-black border-0"
                                                                 href="#">Purchased</a>
                                                         @endif
                                                     </td>

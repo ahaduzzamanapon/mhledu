@@ -137,13 +137,13 @@
                                 @endphp
                                 @if(!empty($getPayrollDetails))
                                     @if($getPayrollDetails->payroll_status == 'G')
-                                        <button class="primary-btn small bg-warning text-white border-0"> @lang('hr.generated')</button>
+                                        <button class="primary-btn small bg-warning text-black border-0"> @lang('hr.generated')</button>
                                     @endif
                                     @if($getPayrollDetails->payroll_status == 'P')
-                                        <button class="primary-btn small bg-success text-white border-0"> @lang('hr.paid') </button>
+                                        <button class="primary-btn small bg-success text-black border-0"> @lang('hr.paid') </button>
                                     @endif
                                 @else
-                                    <button class="primary-btn small bg-danger text-white border-0 nowrap">@lang('hr.not_generated')</button>
+                                    <button class="primary-btn small bg-danger text-black border-0 nowrap">@lang('hr.not_generated')</button>
                                 @endif
                             </td>
                             <td>

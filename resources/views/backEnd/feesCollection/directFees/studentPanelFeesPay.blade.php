@@ -57,9 +57,9 @@
                   <td>{{@dateConvert($feesInstallment->due_date)}}</td>
                   <td> 
                     @if($feesInstallment->active_status == 1 && $feesInstallment->paid_amount)
-                    <button class="primary-btn small bg-success text-white border-0">@lang('fees.paid')</button>
+                    <button class="primary-btn small bg-success text-black border-0">@lang('fees.paid')</button>
                     @else 
-                    <button class="primary-btn small bg-danger text-white border-0">@lang('fees.unpaid')</button>
+                    <button class="primary-btn small bg-danger text-black border-0">@lang('fees.unpaid')</button>
                     @endif 
                   </td>
                   <td>
