@@ -4,6 +4,7 @@
     }
 </style>
 <input type="hidden" name="url" id="url" value="{{ URL::to('/') }}">
+@dd('this')
 <form method="GET" action="">
     <div class="student_list_filters">
         <div class="row align-items-end row-gap-24">

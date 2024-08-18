@@ -61,6 +61,7 @@
         window._rtl = {{ userRtlLtl()==1 ? "true" : "false" }};
         window._translations = {!! cache('translations') !!};
     </script>
+    {{-- @dd(cache('translations')); --}}
 </head>
 @php
 if (empty(color_theme())) {

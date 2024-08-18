@@ -211,6 +211,7 @@
         );
         
         $("#common_select_class").on("change", function() {
+console.log('this');
 
             var url = $("#url").val();
             var i = 0;

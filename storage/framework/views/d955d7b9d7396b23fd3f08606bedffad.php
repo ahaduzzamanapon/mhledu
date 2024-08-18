@@ -80,6 +80,7 @@
         window._rtl = <?php echo e(userRtlLtl()==1 ? "true" : "false"); ?>;
         window._translations = <?php echo cache('translations'); ?>;
     </script>
+    
 </head>
 <?php
 if (empty(color_theme())) {
