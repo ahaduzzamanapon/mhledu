@@ -417,7 +417,15 @@ if (!function_exists('userPermission')) {
     function userPermission($route, $role_id = null, $purpose = null)
     {
         $role_id = Auth::user()->role_id;
-        $permissions = app('permission');
+        $permissions = DB::table('assign_permissions')
+            ->join('permissions', 'assign_permissions.permission_id', '=', 'permissions.id')
+            ->where('assign_permissions.role_id', $role_id)
+            ->pluck('permissions.route')
+            ->toArray();
+        //$permissions = DB::table('assign_permissions')->where('role_id', $role_id)->pluck('permission_id')->all();
+        
+        // dd($permissions);
+        // $permissions = app('permission');
         if ($role_id == 1 && Auth::user()->is_administrator == "yes") {
             return true;
         }

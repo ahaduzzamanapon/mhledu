@@ -684,13 +684,13 @@
                                                         <td>
                                                             <?php if($value->payroll_status == 'G'): ?>
                                                                 <button
-                                                                    class="primary-btn small bg-warning text-white border-0">
+                                                                    class="primary-btn small bg-warning text-black border-0">
                                                                     <?php echo app('translator')->get('hr.generated'); ?></button>
                                                             <?php endif; ?>
     
                                                             <?php if($value->payroll_status == 'P'): ?>
                                                                 <button
-                                                                    class="primary-btn small bg-success text-white border-0">
+                                                                    class="primary-btn small bg-success text-black border-0">
                                                                     <?php echo app('translator')->get('hr.paid'); ?> </button>
                                                             <?php endif; ?>
                                                         </td>
@@ -752,19 +752,19 @@
                                                                 <td>
                                                                     <?php if($value->approve_status == 'P'): ?>
                                                                         <button
-                                                                            class="primary-btn small bg-warning text-white border-0">
+                                                                            class="primary-btn small bg-warning text-black border-0">
                                                                             <?php echo app('translator')->get('common.pending'); ?></button>
                                                                     <?php endif; ?>
     
                                                                     <?php if($value->approve_status == 'A'): ?>
                                                                         <button
-                                                                            class="primary-btn small bg-success text-white border-0">
+                                                                            class="primary-btn small bg-success text-black border-0">
                                                                             <?php echo app('translator')->get('common.approved'); ?></button>
                                                                     <?php endif; ?>
     
                                                                     <?php if($value->approve_status == 'C'): ?>
                                                                         <button
-                                                                            class="primary-btn small bg-danger text-white border-0">
+                                                                            class="primary-btn small bg-danger text-black border-0">
                                                                             <?php echo app('translator')->get('hr.cancelled'); ?></button>
                                                                     <?php endif; ?>
     

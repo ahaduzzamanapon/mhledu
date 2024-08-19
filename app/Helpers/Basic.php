@@ -408,8 +408,6 @@ if (!function_exists('sidebarPermission')) {
             } else {
                 $access = false;
             }
-
-
         }
         if ($permission->module == 'Fees') {
             if ((int)generalSetting()->fees_status == 1) {
