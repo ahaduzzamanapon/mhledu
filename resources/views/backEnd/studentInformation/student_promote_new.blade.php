@@ -195,6 +195,7 @@
     
                                     <tbody>
                                         @foreach($students  as $key=>$student)
+                                        @dd($student);
                                         <tr>
                                             <td>
                                                 <input type="checkbox" id="student_{{$student->id}}" class="common-checkbox promote_check" name="promote[{{$student->id}}][student]" value="{{$student->id}}">

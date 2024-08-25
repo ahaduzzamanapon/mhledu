@@ -78,6 +78,7 @@ class SmStudentPromoteController extends Controller
                 ->where('school_id', Auth::user()->school_id)
                 ->withOutGlobalScope(StatusAcademicSchoolScope::class)
                 ->get();
+                
 
             $current_session = $request->current_session;
             $current_class = $request->current_class;
