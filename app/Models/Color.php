@@ -12,6 +12,6 @@ class Color extends Model
 
     public function activeValue()
     {
-        return $this->hasOne(ColorTheme::class, 'color_id', 'id')->where('theme_id', color_theme()->id);
+        return $this->hasOne(ColorTheme::class, 'color_id', 'id')->where('theme_id', color_theme()->id); 
     }
 }
