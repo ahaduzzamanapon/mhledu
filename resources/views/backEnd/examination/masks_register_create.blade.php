@@ -213,7 +213,7 @@
                                             <th rowspan="2">@lang('student.admission_no').</th>
                                             <th rowspan="2">@lang('student.roll_no').</th>
                                             <th rowspan="2">@lang('common.student')</th>
-                                            <th class="text-center" colspan="{{ $number_of_exam_parts + 1 }}">
+                                            <th class="text-center"  colspan="{{ $number_of_exam_parts + 1 }}">
                                                 {{ $subjectName->subject_name }}</th>
                                             <th rowspan="2">@lang('exam.is_present')</th>
                                         </tr>

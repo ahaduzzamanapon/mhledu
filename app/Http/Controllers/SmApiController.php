@@ -4581,6 +4581,7 @@ class SmApiController extends Controller
     }
     public function studentPromote(Request $request)
     {
+        
         try {
             $sessions = SmAcademicYear::where('active_status', 1)->get();
             $classes = SmClass::where('active_status', 1)->where('academic_id', SmAcademicYear::SINGLE_SCHOOL_API_ACADEMIC_YEAR())->get();
@@ -4617,6 +4618,7 @@ class SmApiController extends Controller
     }
     public function studentCurrentSearch(Request $request)
     {
+        
         $input = $request->all();
         $validator = Validator::make($input, [
             'current_session' => 'required',
