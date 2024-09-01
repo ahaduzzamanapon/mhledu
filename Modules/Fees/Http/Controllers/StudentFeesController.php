@@ -361,6 +361,8 @@ class StudentFeesController extends Controller
                 if($data['payment_method'] == 'RazorPay'){
                     $extendedController = new FeesExtendedController();
                     $extendedController->addFeesAmount($storeTransaction->id, null);
+
+                    
                 }elseif($data['payment_method'] == 'CcAveune'){
                     $ccAvenewPaymentController = new CcAveuneController();
                     $ccAvenewPaymentController->studentFeesPay($data['amount'] , $data['transcationId'], $data['type']);

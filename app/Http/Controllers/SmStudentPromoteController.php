@@ -271,7 +271,7 @@ class SmStudentPromoteController extends Controller
         //                     }
                 
         //                 $compact['user_email'] = $pre_record->studentDetail->email;
-        //                 @send_sms($pre_record->studentDetail->mobile, 'student_promote', $compact);
+        //                 send_sms_apon($pre_record->studentDetail->mobile, 'student_promote', $compact);
 
         //             } elseif (is_null(gv($student_data, 'section'))) {
         //                 $student_record = StudentRecord::where('student_id', $student_id)
@@ -410,7 +410,7 @@ class SmStudentPromoteController extends Controller
         //     //             }
 
         //     //             $compact['user_email'] = $pre_record->studentDetail->email;
-        //     //             @send_sms($pre_record->studentDetail->mobile, 'student_promote', $compact);
+        //     //             send_sms_apon($pre_record->studentDetail->mobile, 'student_promote', $compact);
                     
         //     //         }
 
@@ -562,7 +562,7 @@ class SmStudentPromoteController extends Controller
                         }
             
                     $compact['user_email'] = $pre_record->studentDetail->email;
-                    @send_sms($pre_record->studentDetail->mobile, 'student_promote', $compact);
+                    send_sms_apon($pre_record->studentDetail->mobile, 'student_promote', $compact);
                 }
 
                 if (gv($student_data, 'student') && is_null(gv($student_data, 'section'))) {

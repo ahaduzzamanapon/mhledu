@@ -195,111 +195,111 @@ trait NotificationSend
         }
     }
 
-    public function send_sms($notificationData, $role, $data)
-    {
-        return;
-        if ($notificationData->recipient[$role] != 1) {
-            return;
-        }
+    // public function send_sms($notificationData, $role, $data)
+    // {
+    //     return;
+    //     if ($notificationData->recipient[$role] != 1) {
+    //         return;
+    //     }
 
-        $reciver_number = $data['reciver_number'];
-        if (!$reciver_number) {
-            return;
-        }
+    //     $reciver_number = $data['reciver_number'];
+    //     if (!$reciver_number) {
+    //         return;
+    //     }
 
-        $school_id = auth()->check() && saasSettings('sms_settings') ? auth()->user()->school_id : 1;
-        $activeSmsGateway = SmSmsGateway::where('school_id', $school_id)->where('active_status', 1)->first();
-        if (!$activeSmsGateway) {
-            return;
-        }
+    //     $school_id = auth()->check() && saasSettings('sms_settings') ? auth()->user()->school_id : 1;
+    //     $activeSmsGateway = SmSmsGateway::where('school_id', $school_id)->where('active_status', 1)->first();
+    //     if (!$activeSmsGateway) {
+    //         return;
+    //     }
 
-        $templete = $notificationData->template[$role]['SMS'];
-        $body = SmsTemplate::smsTempleteToBody($templete, $data);
+    //     $templete = $notificationData->template[$role]['SMS'];
+    //     $body = SmsTemplate::smsTempleteToBody($templete, $data);
 
-        try {
-            if ($activeSmsGateway->gateway_name == 'Twilio') {
-                $account_id = $activeSmsGateway->twilio_account_sid;
-                $auth_token = $activeSmsGateway->twilio_authentication_token;
-                $from_phone_number = $activeSmsGateway->twilio_registered_no;
-                if (!$account_id || $auth_token) {
-                    return;
-                }
+    //     try {
+    //         if ($activeSmsGateway->gateway_name == 'Twilio') {
+    //             $account_id = $activeSmsGateway->twilio_account_sid;
+    //             $auth_token = $activeSmsGateway->twilio_authentication_token;
+    //             $from_phone_number = $activeSmsGateway->twilio_registered_no;
+    //             if (!$account_id || $auth_token) {
+    //                 return;
+    //             }
 
-                $client = new Client($account_id, $auth_token);
-                $result = $message = $client->messages->create($reciver_number, array('from' => $from_phone_number, 'body' => $body));
-            } else if ($activeSmsGateway->gateway_name == 'Msg91') {
-                $msg91_authentication_key_sid = $activeSmsGateway->msg91_authentication_key_sid;
-                $msg91_sender_id = $activeSmsGateway->msg91_sender_id;
-                $msg91_route = $activeSmsGateway->msg91_route;
-                $msg91_country_code = $activeSmsGateway->msg91_country_code;
+    //             $client = new Client($account_id, $auth_token);
+    //             $result = $message = $client->messages->create($reciver_number, array('from' => $from_phone_number, 'body' => $body));
+    //         } else if ($activeSmsGateway->gateway_name == 'Msg91') {
+    //             $msg91_authentication_key_sid = $activeSmsGateway->msg91_authentication_key_sid;
+    //             $msg91_sender_id = $activeSmsGateway->msg91_sender_id;
+    //             $msg91_route = $activeSmsGateway->msg91_route;
+    //             $msg91_country_code = $activeSmsGateway->msg91_country_code;
 
-                if ($reciver_number != "") {
-                    $curl = curl_init();
-                    $url = "https://api.msg91.com/api/sendhttp.php?mobiles=" .
-                        $reciver_number . "&authkey=" .
-                        $msg91_authentication_key_sid . "&route=" .
-                        $msg91_route . "&sender=" .
-                        $msg91_sender_id . "&message=" .
-                        $body . "&country=91";
+    //             if ($reciver_number != "") {
+    //                 $curl = curl_init();
+    //                 $url = "https://api.msg91.com/api/sendhttp.php?mobiles=" .
+    //                     $reciver_number . "&authkey=" .
+    //                     $msg91_authentication_key_sid . "&route=" .
+    //                     $msg91_route . "&sender=" .
+    //                     $msg91_sender_id . "&message=" .
+    //                     $body . "&country=91";
 
-                    curl_setopt_array($curl, array(
-                        CURLOPT_URL => $url,
-                        CURLOPT_RETURNTRANSFER => true, CURLOPT_ENCODING => "", CURLOPT_MAXREDIRS => 10, CURLOPT_TIMEOUT => 30, CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, CURLOPT_CUSTOMREQUEST => "GET", CURLOPT_SSL_VERIFYHOST => 0, CURLOPT_SSL_VERIFYPEER => 0,
-                    ));
+    //                 curl_setopt_array($curl, array(
+    //                     CURLOPT_URL => $url,
+    //                     CURLOPT_RETURNTRANSFER => true, CURLOPT_ENCODING => "", CURLOPT_MAXREDIRS => 10, CURLOPT_TIMEOUT => 30, CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, CURLOPT_CUSTOMREQUEST => "GET", CURLOPT_SSL_VERIFYHOST => 0, CURLOPT_SSL_VERIFYPEER => 0,
+    //                 ));
 
-                    $response = curl_exec($curl);
-                    $err = curl_error($curl);
-                    curl_close($curl);
-                }
-            } elseif ($activeSmsGateway->gateway_name == 'TextLocal') {
-                // Config variables. Consult http://api.txtlocal.com/docs for more info.
-                $url = $activeSmsGateway->type == 'in' ? 'https://api.textlocal.in/send/?' : 'https://api.txtlocal.com/send/?';
-                $test = "0";
-                $sender = $activeSmsGateway->textlocal_sender; // This is who the message appears to be from.
-                $message = urlencode($body);
-                $data = "username=" . $activeSmsGateway->textlocal_username .
-                    "&hash=" . $activeSmsGateway->textlocal_hash .
-                    "&message=" . $message .
-                    "&sender=" . $sender .
-                    "&numbers=" . $reciver_number .
-                    "&test=" . $test;
-                $ch = curl_init($url);
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                $result = curl_exec($ch); // This is the result from the API
-                curl_close($ch);
-            } else if ($activeSmsGateway->gateway_name == 'AfricaTalking') {
-                $username = $activeSmsGateway->africatalking_username;
-                $apiKey = $activeSmsGateway->africatalking_api_key;
-                $AT = new AfricasTalking($username, $apiKey);
+    //                 $response = curl_exec($curl);
+    //                 $err = curl_error($curl);
+    //                 curl_close($curl);
+    //             }
+    //         } elseif ($activeSmsGateway->gateway_name == 'TextLocal') {
+    //             // Config variables. Consult http://api.txtlocal.com/docs for more info.
+    //             $url = $activeSmsGateway->type == 'in' ? 'https://api.textlocal.in/send/?' : 'https://api.txtlocal.com/send/?';
+    //             $test = "0";
+    //             $sender = $activeSmsGateway->textlocal_sender; // This is who the message appears to be from.
+    //             $message = urlencode($body);
+    //             $data = "username=" . $activeSmsGateway->textlocal_username .
+    //                 "&hash=" . $activeSmsGateway->textlocal_hash .
+    //                 "&message=" . $message .
+    //                 "&sender=" . $sender .
+    //                 "&numbers=" . $reciver_number .
+    //                 "&test=" . $test;
+    //             $ch = curl_init($url);
+    //             curl_setopt($ch, CURLOPT_POST, true);
+    //             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    //             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    //             $result = curl_exec($ch); // This is the result from the API
+    //             curl_close($ch);
+    //         } else if ($activeSmsGateway->gateway_name == 'AfricaTalking') {
+    //             $username = $activeSmsGateway->africatalking_username;
+    //             $apiKey = $activeSmsGateway->africatalking_api_key;
+    //             $AT = new AfricasTalking($username, $apiKey);
 
-                $sms_Send = $AT->sms();
-                $sms_Send->send(['to' => $reciver_number, 'message' => $body]);
-            } else if ($activeSmsGateway->gateway_name == 'Himalayasms') {
-                if ($reciver_number != "") {
-                    $client = new Http();
-                    $request = $client->get("https://sms.techhimalaya.com/base/smsapi/index.php", [
-                        'query' => [
-                            'key' => $activeSmsGateway->himalayasms_key,
-                            'senderid' => $activeSmsGateway->himalayasms_senderId,
-                            'campaign' => $activeSmsGateway->himalayasms_campaign,
-                            'routeid' => $activeSmsGateway->himalayasms_routeId,
-                            'contacts' => $reciver_number,
-                            'msg' => $body,
-                            'type' => "text"
-                        ],
-                        'http_errors' => false
-                    ]);
-                    $request->getBody();
-                }
-            } elseif ($activeSmsGateway->gateway_type == "custom") {
-                @send_custom_sms($reciver_number, $body, $activeSmsGateway);
-            }
-        } catch (\Exception $e) {
-            Log::info($e);
-        }
-    }
+    //             $sms_Send = $AT->sms();
+    //             $sms_Send->send(['to' => $reciver_number, 'message' => $body]);
+    //         } else if ($activeSmsGateway->gateway_name == 'Himalayasms') {
+    //             if ($reciver_number != "") {
+    //                 $client = new Http();
+    //                 $request = $client->get("https://sms.techhimalaya.com/base/smsapi/index.php", [
+    //                     'query' => [
+    //                         'key' => $activeSmsGateway->himalayasms_key,
+    //                         'senderid' => $activeSmsGateway->himalayasms_senderId,
+    //                         'campaign' => $activeSmsGateway->himalayasms_campaign,
+    //                         'routeid' => $activeSmsGateway->himalayasms_routeId,
+    //                         'contacts' => $reciver_number,
+    //                         'msg' => $body,
+    //                         'type' => "text"
+    //                     ],
+    //                     'http_errors' => false
+    //                 ]);
+    //                 $request->getBody();
+    //             }
+    //         } elseif ($activeSmsGateway->gateway_type == "custom") {
+    //             @send_custom_sms($reciver_number, $body, $activeSmsGateway);
+    //         }
+    //     } catch (\Exception $e) {
+    //         Log::info($e);
+    //     }
+    // }
 
     public function send_web($notificationData, $role, $data)
     {

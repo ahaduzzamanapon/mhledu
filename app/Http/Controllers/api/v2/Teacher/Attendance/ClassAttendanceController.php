@@ -328,8 +328,8 @@ class ClassAttendanceController extends Controller
                 $attendance->save();
 
                 $compact['holiday_date'] = date('Y-m-d', strtotime($request->attendance_date));
-                @send_sms($record->student->mobile, 'holiday', $compact);
-                @send_sms(@$record->student->parents->guardians_mobile, 'holiday', $compact);
+                send_sms_apon($record->student->mobile, 'holiday', $compact);
+                send_sms_apon(@$record->student->parents->guardians_mobile, 'holiday', $compact);
 
                 // futter notification
                 $messege = "";
@@ -372,7 +372,7 @@ class ClassAttendanceController extends Controller
 
 
                     $compact['holiday_date'] = date('Y-m-d', strtotime($request->attendance_date));
-                    @send_sms($record->student->mobile, 'holiday', $compact);
+                    send_sms_apon($record->student->mobile, 'holiday', $compact);
                 }
                 // end
 
@@ -434,8 +434,8 @@ class ClassAttendanceController extends Controller
                 $attendance->save();
 
                 $compact['holiday_date'] = date('Y-m-d', strtotime($request->attendance_date));
-                @send_sms($record->student->mobile, 'holiday', $compact);
-                @send_sms(@$record->student->parents->guardians_mobile, 'holiday', $compact);
+                send_sms_apon($record->student->mobile, 'holiday', $compact);
+                send_sms_apon(@$record->student->parents->guardians_mobile, 'holiday', $compact);
 
                 // futter notification
                 $messege = "";
@@ -476,7 +476,7 @@ class ClassAttendanceController extends Controller
 
 
                     $compact['holiday_date'] = date('Y-m-d', strtotime($request->attendance_date));
-                    @send_sms($record->student->mobile, 'holiday', $compact);
+                    send_sms_apon($record->student->mobile, 'holiday', $compact);
                 }
                 // end
 

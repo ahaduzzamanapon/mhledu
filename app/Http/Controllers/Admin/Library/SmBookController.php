@@ -324,7 +324,7 @@ class SmBookController extends Controller
                 $compact['issue_date'] = date('Y-m-d');
                 $compact['book_title'] = $bookIssue->books->book_title;
                 $compact['book_no'] = $bookIssue->books->book_number;
-                @send_sms($bookIssue->member->studentDetails->mobile, 'student_library_book_issue', $compact);
+                send_sms_apon($bookIssue->member->studentDetails->mobile, 'student_library_book_issue', $compact);
             } elseif ($bookIssue->member->memberTypes->id == '3') {
                 $compact['slug'] = 'parent';
                 $compact['user_email'] = $bookIssue->member->parentsDetails->guardians_email;
@@ -333,7 +333,7 @@ class SmBookController extends Controller
                 $compact['book_title'] = $bookIssue->books->book_title;
                 $compact['book_no'] = $bookIssue->books->book_number;
                 $compact['parent_name'] = $bookIssue->member->parentsDetails->guardians_name;
-                @send_sms($bookIssue->member->parentsDetails->guardians_mobile, 'parent_library_book_issue', $compact);
+                send_sms_apon($bookIssue->member->parentsDetails->guardians_mobile, 'parent_library_book_issue', $compact);
             }
 
             Toastr::success('Operation successful', 'Success');
@@ -390,7 +390,7 @@ class SmBookController extends Controller
                 $compact['book_title'] = $return->books->book_title;
                 $compact['book_no'] = $return->books->book_number;
                 $compact['return_date'] = date('Y-m-d');
-                @send_sms($return->member->studentDetails->mobile, 'student_return_issue_book', $compact);
+                send_sms_apon($return->member->studentDetails->mobile, 'student_return_issue_book', $compact);
             } elseif ($return->member->memberTypes->id == '3') {
                 $compact['slug'] = 'parent';
                 $compact['user_email'] = $return->member->parentsDetails->guardians_email;
@@ -400,7 +400,7 @@ class SmBookController extends Controller
                 $compact['book_no'] = $return->books->book_number;
                 $compact['parent_name'] = $return->member->parentsDetails->guardians_name;
                 $compact['return_date'] = date('Y-m-d');
-                @send_sms($return->member->parentsDetails->guardians_mobile, 'parent_return_issue_book', $compact);
+                send_sms_apon($return->member->parentsDetails->guardians_mobile, 'parent_return_issue_book', $compact);
             }
 
             Toastr::success('Operation successful', 'Success');

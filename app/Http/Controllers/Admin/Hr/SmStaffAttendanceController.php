@@ -105,11 +105,11 @@ class SmStaffAttendanceController extends Controller
                 $compact['staff_name'] = $staffInfo->full_name;
                 $compact['attendance_date'] = date('Y-m-d', strtotime($request->date));
                 if ($request->attendance[$staff] == "P") {
-                    @send_sms($staffInfo->mobile, 'staff_attendance', $compact);
+                    send_sms_apon($staffInfo->mobile, 'staff_attendance', $compact);
                 } elseif ($request->attendance[$staff] == "A") {
-                    @send_sms($staffInfo->mobile, 'staff_absent', $compact);
+                    send_sms_apon($staffInfo->mobile, 'staff_absent', $compact);
                 } elseif ($request->attendance[$staff] == "L") {
-                    @send_sms($staffInfo->mobile, 'staff_late', $compact);
+                    send_sms_apon($staffInfo->mobile, 'staff_late', $compact);
                 }
             }
             Toastr::success('Operation successful', 'Success');
@@ -153,7 +153,7 @@ class SmStaffAttendanceController extends Controller
                 $attendance->save();
 
                 $compact['holiday_date'] = date('Y-m-d', strtotime($request->date));
-                @send_sms($staff->mobile, 'holiday', $compact);
+                send_sms_apon($staff->mobile, 'holiday', $compact);
             }
         }
         Toastr::success('Operation successful', 'Success');

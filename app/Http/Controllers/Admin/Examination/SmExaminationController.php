@@ -1861,10 +1861,10 @@ class SmExaminationController extends Controller
                 $compact['exam_type'] = $examType->title;
                 $compact['school_name'] = generalSetting()->school_name;
                 if($request->receiver == 'students'){
-                    @send_sms($students->student->mobile, 'exam_mark_student', $compact);
+                    send_sms_apon($students->student->mobile, 'exam_mark_student', $compact);
                 }else{
                     $compact['parent_name'] = $students->student->parents->guardians_name;
-                    @send_sms($students->student->parents->guardians_mobile, 'exam_mark_parent', $compact);
+                    send_sms_apon($students->student->parents->guardians_mobile, 'exam_mark_parent', $compact);
                 }
             }
             Toastr::success('Operation successful', 'Success');
@@ -1922,10 +1922,10 @@ class SmExaminationController extends Controller
                 $compact['exam_type'] = $examType->title;
                 $compact['school_name'] = generalSetting()->school_name;
                 if($request->receiver == 'students'){
-                    @send_sms($students->student->mobile, 'exam_mark_student', $compact);
+                    send_sms_apon($students->student->mobile, 'exam_mark_student', $compact);
                 }else{
                     $compact['parent_name'] = $students->student->parents->guardians_name;
-                    @send_sms($students->student->parents->guardians_mobile, 'exam_mark_parent', $compact);
+                    send_sms_apon($students->student->parents->guardians_mobile, 'exam_mark_parent', $compact);
                 }
             }
             Toastr::success('Operation successful', 'Success');

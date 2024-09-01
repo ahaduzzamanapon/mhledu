@@ -170,10 +170,10 @@ class SmStudentAttendanceController extends Controller
                     $compact['attendance_date'] = $attendance->attendance_date;
                     $compact['user_email'] = $student_info->email;
                     $compact['student_id'] = $student_info;
-                    @send_sms($student_info->mobile, 'student_attendance', $compact);
+                    send_sms_apon($student_info->mobile, 'student_attendance', $compact);
 
                     $compact['user_email'] = @$student_info->parents->guardians_email;
-                    @send_sms(@$student_info->parents->guardians_mobile, 'student_attendance_for_parent', $compact);
+                    send_sms_apon(@$student_info->parents->guardians_mobile, 'student_attendance_for_parent', $compact);
 
                 } elseif ($request->attendance[$student] == 'A') {
                     

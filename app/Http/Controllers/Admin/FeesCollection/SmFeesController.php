@@ -731,10 +731,10 @@ class SmFeesController extends Controller
                 $compact['student_detail']=$student;
 
                 if(isset($request->send_sms)){
-                    @send_sms($student->mobile, 'student_fees_due', $compact);
+                    send_sms_apon($student->mobile, 'student_fees_due', $compact);
                     $compact['user_email'] = @$student->parents->guardians_email;
                     $compact['parent_name'] = @$student->parents->guardians_name;
-                    @send_sms(@$student->parents->guardians_mobile, 'student_dues_fees_for_parent', $compact);
+                    send_sms_apon(@$student->parents->guardians_mobile, 'student_dues_fees_for_parent', $compact);
                 } elseif(isset($request->send_email)){
                     if ($student->email) {
                         send_mail($student->email, $student->full_name, 'due_fees_payment', $compact);

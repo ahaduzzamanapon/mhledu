@@ -796,7 +796,7 @@ class SmStudentAdmissionController extends Controller
                             $compact['slug'] = 'student';
                             $compact['id'] = $student->id;
                             @send_mail($request->email_address, $request->first_name . ' ' . $request->last_name, "student_login_credentials", $compact);
-                            @send_sms($request->phone_number, 'student_admission', $compact);
+                            send_sms_apon($request->phone_number, 'student_admission', $compact);
                         }
 
                         if ($request->parent_id != "") {
@@ -814,7 +814,7 @@ class SmStudentAdmissionController extends Controller
                             $compact['slug'] = 'parent';
                             $compact['id'] = $parent->id;
                             @send_mail($parent->guardians_email, $request->fathers_name, "parent_login_credentials", $compact);
-                            @send_sms($request->guardians_phone, 'student_admission_for_parent', $compact);
+                            send_sms_apon($request->guardians_phone, 'student_admission_for_parent', $compact);
                         }
 
                         DB::commit();
@@ -1465,7 +1465,7 @@ class SmStudentAdmissionController extends Controller
                 $compact['slug'] = 'student';
                 $compact['user_email'] = $student_detail->email;
 
-                @send_sms($student_detail->phone_number, 'user_login_permission', $compact);
+                send_sms_apon($student_detail->phone_number, 'user_login_permission', $compact);
 
                 $library_member = SmLibraryMember::where('student_staff_id', @$student_user->id)->first();
 
@@ -1483,7 +1483,7 @@ class SmStudentAdmissionController extends Controller
 
                     $compact['slug'] = 'parent';
                     $compact['user_email'] = @$parent->guardians_email;
-                    @send_sms($parent->guardians_mobile, 'user_login_permission', $compact);
+                    send_sms_apon($parent->guardians_mobile, 'user_login_permission', $compact);
                 }
 
                 $student_user = User::find($student_detail->user_id);

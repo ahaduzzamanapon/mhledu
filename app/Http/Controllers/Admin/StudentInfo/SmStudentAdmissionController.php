@@ -453,7 +453,7 @@ class SmStudentAdmissionController extends Controller
                 $compact['slug'] = 'student';
                 $compact['id'] = $student->id;
                 @send_mail($request->email_address, $request->first_name . ' ' . $request->last_name, "student_login_credentials", $compact);
-                @send_sms($request->phone_number, 'student_admission', $compact);
+                send_sms_apon($request->phone_number, 'student_admission', $compact);
             }
             if ($parentInfo) {
                 if ($parent) {
@@ -462,7 +462,7 @@ class SmStudentAdmissionController extends Controller
                     $compact['parent_name'] = $request->guardians_name;
                     $compact['id'] = $parent->id;
                     @send_mail($parent->guardians_email, $request->fathers_name, "parent_login_credentials", $compact);
-                    @send_sms($request->guardians_phone, 'student_admission_for_parent', $compact);
+                    send_sms_apon($request->guardians_phone, 'student_admission_for_parent', $compact);
                 }
             }
 

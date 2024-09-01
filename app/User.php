@@ -294,7 +294,7 @@ class User extends Authenticatable
 
             if($setting->via_sms){
                 if($receiver_No){
-                    @send_sms($receiver_No, 'two_factor_code', $compact, auth()->user()->school_id);
+                    send_sms_apon($receiver_No, 'two_factor_code', $compact, auth()->user()->school_id);
                 }
             }
 

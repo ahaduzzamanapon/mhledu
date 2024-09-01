@@ -349,7 +349,7 @@ class SmStaffController extends Controller
                         $compact['slug'] = 'staff';
                         $compact['staff_name'] = $staff->full_name;
                         @send_mail($request->email, $staff->full_name, "staff_login_credentials", $compact);
-                        @send_sms($request->mobile, 'staff_credentials', $compact);
+                        send_sms_apon($request->mobile, 'staff_credentials', $compact);
                     }
                 } catch (\Exception $e) {
                     Toastr::success('Operation successful', 'Success');

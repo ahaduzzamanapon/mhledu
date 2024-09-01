@@ -168,9 +168,7 @@ class CustomSmsSettingController extends Controller
         $request->validate([
             'reciver_no' => 'required',
         ]);
-
-        @send_sms($request->reciver_no, 'test_sms', $compact = null);
-
+        send_sms_apon($request->reciver_no, 'test_sms');
         Toastr::success('Operation Successfull', 'Success');
         return redirect()->back();
     }

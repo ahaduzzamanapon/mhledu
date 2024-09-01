@@ -83,7 +83,7 @@ class SmLeaveRequestController extends Controller
             $compact['slug'] = 'staff';
             $compact['user_email'] = auth()->user()->email;
             $compact['staff_name'] = auth()->user()->full_name;
-            @send_sms($staffInfo->mobile, 'staff_leave_appllication', $compact);
+            send_sms_apon($staffInfo->mobile, 'staff_leave_appllication', $compact);
 
             try {
                 $user = User::where('role_id', 1)->first();

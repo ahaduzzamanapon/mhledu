@@ -178,7 +178,7 @@ class SmCommunicateController extends Controller
                                     }
 
                                     if (activeSmsGateway()->gateway_name != 'Mobile SMS') {
-                                        @send_sms($to_mobile, 'communicate_sms', ['description' => $request->description]);
+                                        send_sms_apon($to_mobile, 'communicate_sms', ['description' => $request->description]);
                                     }
                                 }
 
@@ -253,7 +253,7 @@ class SmCommunicateController extends Controller
                                 }
 
                                 if (activeSmsGateway()->gateway_name != 'Mobile SMS') {
-                                    @send_sms($to_mobile, 'communicate_sms',  ['description' => $request->description]);
+                                    send_sms_apon($to_mobile, 'communicate_sms',  ['description' => $request->description]);
                                 }
                             }
                             // Send SMS Convert to Flutter Notification Start
@@ -353,7 +353,7 @@ class SmCommunicateController extends Controller
                                                 $receiver_numbers[] = $to_mobile;
                                             }
                                             if (activeSmsGateway()->gateway_name != 'Mobile SMS') {
-                                                @send_sms($to_mobile, 'communicate_sms',  ['description' => $request->description]);
+                                                send_sms_apon($to_mobile, 'communicate_sms',  ['description' => $request->description]);
                                             }
                                         }
                                     }
@@ -373,7 +373,7 @@ class SmCommunicateController extends Controller
                                                 $receiver_numbers[] = $to_mobile;
                                             }
                                             if (activeSmsGateway()->gateway_name != 'Mobile SMS') {
-                                                @send_sms($to_mobile, 'communicate_sms',  ['description' => $request->description]);
+                                                send_sms_apon($to_mobile, 'communicate_sms',  ['description' => $request->description]);
                                             }
                                         }
                                     }

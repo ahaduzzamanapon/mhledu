@@ -1163,31 +1163,31 @@ class ApiSmStudentAttendanceController extends Controller
                 if (gv($student, 'attendance_type') == "P") {
                     $compact['user_email'] = $studentInfo->studentDetail->email;
                     $compact['student_name'] = $studentInfo->studentDetail->full_name;
-                    @send_sms($studentInfo->studentDetail->mobile, 'student_attendance', $compact);
+                    send_sms_apon($studentInfo->studentDetail->mobile, 'student_attendance', $compact);
 
                     $compact['user_email'] = $studentInfo->studentDetail->parents->guardians_email;
                     $compact['parent_name'] = $studentInfo->studentDetail->parents->guardians_name;
-                    @send_sms($studentInfo->studentDetail->parents->guardians_mobile, 'student_attendance_for_parent', $compact);
+                    send_sms_apon($studentInfo->studentDetail->parents->guardians_mobile, 'student_attendance_for_parent', $compact);
                 } elseif (gv($student, 'attendance_type') == "L") {
                     $compact['user_email'] = $studentInfo->studentDetail->email;
                     $compact['student_name'] = $studentInfo->studentDetail->full_name;
-                    @send_sms($studentInfo->studentDetail->mobile, 'student_late', $compact);
+                    send_sms_apon($studentInfo->studentDetail->mobile, 'student_late', $compact);
 
                     $compact['user_email'] = $studentInfo->studentDetail->parents->guardians_email;
                     $compact['parent_name'] = $studentInfo->studentDetail->parents->guardians_name;
-                    @send_sms($studentInfo->studentDetail->parents->guardians_mobile, 'student_late_for_parent', $compact);
+                    send_sms_apon($studentInfo->studentDetail->parents->guardians_mobile, 'student_late_for_parent', $compact);
                 } elseif (gv($student, 'attendance_type') == "A") {
                     $compact['user_email'] = $studentInfo->studentDetail->email;
                     $compact['student_name'] = $studentInfo->studentDetail->full_name;
-                    @send_sms($studentInfo->studentDetail->mobile, 'student_absent', $compact);
+                    send_sms_apon($studentInfo->studentDetail->mobile, 'student_absent', $compact);
 
                     $compact['user_email'] = $studentInfo->studentDetail->parents->guardians_email;
                     $compact['parent_name'] = $studentInfo->studentDetail->parents->guardians_name;
-                    @send_sms($studentInfo->studentDetail->parents->guardians_mobile, 'student_absent_for_parent', $compact);
+                    send_sms_apon($studentInfo->studentDetail->parents->guardians_mobile, 'student_absent_for_parent', $compact);
                 } elseif (isset($request->mark_holiday)) {
                     $compact['holiday_date'] = date('Y-m-d', strtotime($request->attendance_date));
-                    @send_sms($studentInfo->studentDetail->mobile, 'holiday', $compact);
-                    @send_sms($studentInfo->studentDetail->parents->guardians_mobile, 'holiday', $compact);
+                    send_sms_apon($studentInfo->studentDetail->mobile, 'holiday', $compact);
+                    send_sms_apon($studentInfo->studentDetail->parents->guardians_mobile, 'holiday', $compact);
                 }
                 $messege = "";
                 $date = dateConvert($attendance->attendance_date);

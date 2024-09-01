@@ -18506,17 +18506,17 @@ class SmApiController extends Controller
                     $compact['slug'] = 'student';
                     $compact['user_email'] = $staff->student->email;
                     $compact['student_name'] = $staff->student->full_name;
-                    @send_sms($staff->student->mobile, 'student_leave_approve', $compact);
+                    send_sms_apon($staff->student->mobile, 'student_leave_approve', $compact);
 
                     $compact['slug'] = 'parent';
                     $compact['user_email'] = $staff->student->parents->guardians_email;
                     $compact['parent_name'] = $staff->student->parents->guardians_name;
-                    @send_sms($staff->student->parents->guardians_mobile, 'parent_leave_approve_for_student', $compact);
+                    send_sms_apon($staff->student->parents->guardians_mobile, 'parent_leave_approve_for_student', $compact);
                 }else{
                     $compact['slug'] = 'staff';
                     $compact['user_email'] = $staff->staff->email;
                     $compact['staff_name'] = $staff->full_name;
-                    @send_sms($staff->staff->mobile, 'staff_leave_approve', $compact);
+                    send_sms_apon($staff->staff->mobile, 'staff_leave_approve', $compact);
                 }
             }
 
@@ -18562,17 +18562,17 @@ class SmApiController extends Controller
                     $compact['slug'] = 'student';
                     $compact['user_email'] = $staff->student->email;
                     $compact['student_name'] = $staff->student->full_name;
-                    @send_sms($staff->student->mobile, 'student_leave_approve', $compact);
+                    send_sms_apon($staff->student->mobile, 'student_leave_approve', $compact);
 
                     $compact['slug'] = 'parent';
                     $compact['user_email'] = $staff->student->parents->guardians_email;
                     $compact['parent_name'] = $staff->student->parents->guardians_name;
-                    @send_sms($staff->student->parents->guardians_mobile, 'parent_leave_approve_for_student', $compact);
+                    send_sms_apon($staff->student->parents->guardians_mobile, 'parent_leave_approve_for_student', $compact);
                 }else{
                     $compact['slug'] = 'staff';
                     $compact['user_email'] = $staff->staff->email;
                     $compact['staff_name'] = $staff->full_name;
-                    @send_sms($staff->staff->mobile, 'staff_leave_approve', $compact);
+                    send_sms_apon($staff->staff->mobile, 'staff_leave_approve', $compact);
                 }
             }
 
