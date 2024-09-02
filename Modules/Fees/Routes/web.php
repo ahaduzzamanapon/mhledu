@@ -2,9 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Fees\Http\Controllers\AjaxController;
+use Modules\Fees\Http\Controllers\EkpayPaymentController;
 use Modules\Fees\Http\Controllers\FeesController;
 use Modules\Fees\Http\Controllers\FeesReportController;
 use Modules\Fees\Http\Controllers\StudentFeesController;
+
+// Ekpay Payment
+// payment route
+
+Route::any('ek-payment-success', [EkpayPaymentController::class, 'ekPaySuccess']);
+// Route::post('ek-response-ekpay-ipn-tax', [EkpayPaymentController::class, 'fail'])->name('fail');
+Route::any('ek-payment-cancel', [EkpayPaymentController::class, 'ekPayCancel']);
 
 Route::group(['middleware' => ['subdomain']], function () {
     Route::prefix('fees')->middleware('auth')->group(function () {
@@ -41,6 +49,9 @@ Route::group(['middleware' => ['subdomain']], function () {
         Route::post('search-bank-payment', [FeesController::class, 'searchBankPayment'])->name('fees.search-bank-payment')->middleware('userRolePermission:fees.search-bank-payment');
         Route::post('approve-bank-payment', [FeesController::class, 'approveBankPayment'])->name('fees.approve-bank-payment')->middleware('userRolePermission:fees.approve-bank-payment');
         Route::post('reject-bank-payment', [FeesController::class, 'rejectBankPayment'])->name('fees.reject-bank-payment')->middleware('userRolePermission:fees.reject-bank-payment');
+
+
+
 
         //Fees invoice Settings
         Route::get('fees-invoice-settings', [FeesController::class, 'feesInvoiceSettings'])->name('fees.fees-invoice-settings')->middleware('userRolePermission:fees.fees-invoice-settings');

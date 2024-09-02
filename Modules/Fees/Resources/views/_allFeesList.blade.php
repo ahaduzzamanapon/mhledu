@@ -101,6 +101,7 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($record->feesInvoice as $key => $studentInvoice)
+                                                {{-- @dd($studentInvoice) --}}
                                                     @php
                                                         $amount = $studentInvoice->Tamount;
                                                         $weaver = $studentInvoice->Tweaver;
