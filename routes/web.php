@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Modules\Fees\Http\Controllers\EkpayPaymentController;
 
 Route::get('/', 'LandingController@index')->name('/');
 // if (config('app.app_sync')) {
@@ -16,6 +17,14 @@ if (moduleStatusCheck('Saas')) {
         require('tenant.php');
     });
 }
+
+// Route::post('ek-payment-success', [EkpayPaymentController::class, 'ekPaySuccess'])->name('success');
+// Route::post('ek-response-ekpay-ipn-tax', [EkpayPaymentController::class, 'fail'])->name('fail');
+// Route::post('ek-payment-cancel', [EkpayPaymentController::class, 'ekPayCancel'])->name('cancel');
+// Route::any('ek-payment-success', [EkpayPaymentController::class, 'ekPaySuccess']);
+
+
+
 
 Route::group(['middleware' => ['subdomain']], function ($routes) {
     require('tenant.php');
