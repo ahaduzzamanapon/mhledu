@@ -4,6 +4,7 @@ use App\GlobalVariable;
 use App\SmClass;
 use App\SmSection;
 use App\SmStudent;
+use App\SmSmsGateway;
 use App\SmSubject;
 use App\SmCurrency;
 use App\Models\Theme;
@@ -467,6 +468,12 @@ if (!function_exists('send_sms_apon')) {
         // if ($notificationData->recipient[$role] != 1) {
         //     return;
         // }
+        //dd($compact['description']);
+        if($compact==null){
+            $massagedata=$data;
+        }else{
+            $massagedata=@$compact['description'];
+        }
         
 
         if (!$reciver_number) {
@@ -482,7 +489,7 @@ if (!function_exists('send_sms_apon')) {
         }
 
         //$templete = $notificationData->template[$role]['SMS'];
-        $body =  $data;
+        $body =  $massagedata;
 
         try {
             //dd($activeSmsGateway->gateway_type);
@@ -583,7 +590,7 @@ if (!function_exists('send_sms_apon')) {
                 ));
                 $response = curl_exec($curl);
                 curl_close($curl);
-                dd($response);
+                // dd($response);
                 return $response;
             }
         } catch (\Exception $e) {
