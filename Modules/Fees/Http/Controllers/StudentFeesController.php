@@ -310,79 +310,8 @@ class StudentFeesController extends Controller
                         return redirect()->route('mercadopago.mercadopago-fees-payment', ['traxId' => $storeTransaction->id]);
                     }
                 }
-            } elseif ($request->payment_method == "Ekpay") {
-                // dd('ldkjfldsjflsdjf');
-                $storeTransaction = new FmFeesTransaction();
-                $storeTransaction->fees_invoice_id = $request->invoice_id;
-                $storeTransaction->payment_note = $request->payment_note;
-                $storeTransaction->payment_method = $request->payment_method;
-                $storeTransaction->add_wallet_money = $request->add_wallet;
-                $storeTransaction->bank_id = $request->bank;
-                $storeTransaction->student_id = $record->student_id;
-                $storeTransaction->record_id = $record->id;
-                $storeTransaction->user_id = auth()->user()->id;
-                $storeTransaction->file = $file;
-                $storeTransaction->paid_status = 'pending';
-                $storeTransaction->school_id = auth()->user()->school_id;
-                if (moduleStatusCheck('University')) {
-                    $storeTransaction->un_academic_id = getAcademicId();
-                } else {
-                    $storeTransaction->academic_id = getAcademicId();
-                }
-                $storeTransaction->save();
-
-                foreach ($request->fees_type as $key => $type) {
-                    if ($request->paid_amount[$key] > 0) {
-                        $storeTransactionChield = new FmFeesTransactionChield();
-                        $storeTransactionChield->fees_transaction_id = $storeTransaction->id;
-                        $storeTransactionChield->fees_type = $type;
-                        $storeTransactionChield->paid_amount = $request->paid_amount[$key] - $request->extraAmount[$key];
-                        $storeTransactionChield->service_charge = chargeAmount($request->payment_method, $request->paid_amount[$key]);
-                        $storeTransactionChield->note = $request->note[$key];
-                        $storeTransactionChield->school_id = auth()->user()->school_id;
-                        if (moduleStatusCheck('University')) {
-                            $storeTransactionChield->un_academic_id = getAcademicId();
-                        } else {
-                            $storeTransactionChield->academic_id = getAcademicId();
-                        }
-                        $storeTransactionChield->save();
-                    }
-                }
-
-                // dd('okkkkk');
-
-                foreach ($request->paid_amount as $paidAmount) {
-                    $paid_amount = $paidAmount;
-                }
-
-                $paymentData = [
-                    "amount" => $paid_amount,
-                    "invoice_id" => $request->invoice_id,
-                    "student_name" => "Test Name",
-                    "student_mobile" => "01700000000",
-                    "student_email" => "student@example.com",
-                ];
-                // dd($paymentData);
-
-                $number = uniqid();
-                $codeLicense = $number;
-                $transiction_no = $codeLicense;
-
-                $paymentUrl = 'https://sandbox.ekpay.gov.bd/ekpaypg/';
-
-                $payment = new EkpayPaymentController();
-                $token = $payment->ekPay($transiction_no, $paymentData);
-                // dd($token);
-                if (!empty($token)) {
-                    //  return $token;
-                    $redirect = $paymentUrl . "v1?sToken=$token&trnsID=$transiction_no";
-                    // dd($redirect);
-                    // return  response()->json($redirect);
-                    return redirect()->away($redirect);
-                } else {
-                    // return redirect()->route('citizen.review.case.create')->with('danger', 'আবেদনের তথ্য সফলভাবে সিষ্টেম সংরক্ষণ করা হয়েছে কিন্তু আপনার পেমেন্টও সম্পন্ন হয়নি।');
-                }
             } else {
+                // dd($request->all());
                 $storeTransaction = new FmFeesTransaction();
                 $storeTransaction->fees_invoice_id = $request->invoice_id;
                 $storeTransaction->payment_note = $request->payment_note;
@@ -403,6 +332,7 @@ class StudentFeesController extends Controller
 
                 foreach ($request->fees_type as $key => $type) {
                     if ($request->paid_amount[$key] > 0) {
+                        // dd($request->paid_amount[$key]);
                         $storeTransactionChield = new FmFeesTransactionChield();
                         $storeTransactionChield->fees_transaction_id = $storeTransaction->id;
                         $storeTransactionChield->fees_type = $type;
@@ -430,10 +360,50 @@ class StudentFeesController extends Controller
                 $data['stripeToken'] = $request->stripeToken;
                 $data['transcationId'] = $storeTransaction->id;
                 $data['service_charge'] = chargeAmount($request->payment_method, $request->total_paid_amount);
-
+                // dd($data);
                 if ($data['payment_method'] == 'RazorPay') {
                     $extendedController = new FeesExtendedController();
                     $extendedController->addFeesAmount($storeTransaction->id, null);
+                } elseif ($data['payment_method'] == 'Ekpay') {
+
+                    // dd($request->all());
+
+                    foreach ($request->paid_amount as $paidAmount) {
+                        $paid_amount = $paidAmount;
+                    }
+
+                    $paymentData = [
+                        "amount" => $paid_amount,
+                        "invoice_id" => $request->invoice_id,
+                        "transcationId" => $storeTransaction->id,
+                        "student_name" => Auth::user()->full_name,
+                        "student_mobile" => Auth::user()->phone_number,
+                        "student_email" => Auth::user()->email,
+                    ];
+                    // dd($paymentData);
+
+                    $number = uniqid();
+                    $codeLicense = $number;
+                    $transiction_no = $codeLicense;
+
+                    $paymentUrl = 'https://sandbox.ekpay.gov.bd/ekpaypg/';
+
+                    $payment = new EkpayPaymentController();
+                    $token = $payment->ekPay($transiction_no, $paymentData);
+                    // dd($token);
+                    if (!empty($token)) {
+                        //  return $token;
+                        $redirect = $paymentUrl . "v1?sToken=$token&trnsID=$transiction_no";
+                        // dd($redirect);
+                        // return  response()->json($redirect);
+                        return redirect()->away($redirect);
+
+
+                    } else {
+                        // return redirect()->route('citizen.review.case.create')->with('danger', 'আবেদনের তথ্য সফলভাবে সিষ্টেম সংরক্ষণ করা হয়েছে কিন্তু আপনার পেমেন্টও সম্পন্ন হয়নি।');
+                    }
+
+
                 } elseif ($data['payment_method'] == 'CcAveune') {
                     $ccAvenewPaymentController = new CcAveuneController();
                     $ccAvenewPaymentController->studentFeesPay($data['amount'], $data['transcationId'], $data['type']);
@@ -460,7 +430,7 @@ class StudentFeesController extends Controller
                     }
                 } else {
                     $classMap = config('paymentGateway.' . $data['payment_method']);
-                    $make_payment = new $classMap();
+                    $make_payment = new classMap();
                     $url = $make_payment->handle($data);
                     if (!$url) {
                         $url = url('fees/student-fees-list');
