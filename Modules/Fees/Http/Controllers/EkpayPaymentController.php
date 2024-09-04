@@ -2,21 +2,22 @@
 
 namespace Modules\Fees\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Contracts\Support\Renderable;
-
-
 use App\User;
 use App\SmSchool;
 use App\SmAddIncome;
 use App\SmBankAccount;
+
+
 use App\SmBankStatement;
 use App\SmPaymentMethhod;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Modules\Fees\Entities\FmFeesInvoice;
+use Illuminate\Contracts\Support\Renderable;
 use Modules\Fees\Entities\FmFeesTransaction;
 use Modules\Fees\Entities\FmFeesInvoiceChield;
 use Modules\Wallet\Entities\WalletTransaction;
@@ -27,6 +28,7 @@ class EkpayPaymentController extends Controller
 {
     public function ekPay($transiction_no, $paymentData)
     {
+        // return $paymentData;
         $amount = $paymentData['amount'];
 
         $date = date('Y-m-d H:i:s');
@@ -36,9 +38,9 @@ class EkpayPaymentController extends Controller
         $password = 'BbstaT@tsT12';
         $mac_addr = '1.1.1.1';
         $responseUrlSuccess = $BackUrl . '/ek-payment-success';
-        // return $responseUrlSuccess;
         $ipnUrlTrxinfo = $BackUrl . '/response-ekpay-ipn-tax';
         $responseUrlCancel = $BackUrl . '/ek-payment-cancel';
+        // return $responseUrlSuccess;
 
 
         $curl = curl_init();
@@ -170,7 +172,9 @@ class EkpayPaymentController extends Controller
             'updated_at' => now()
         ]);
       
-        return redirect()->route('fees.student-fees-list')->with('message', 'Payment Successfull');
+        Toastr::success('Payment Successfull', 'Success');
+        sendNotification("Payment Successfull", null, Auth::user()->id, 2);
+        return redirect()->route('fees.student-fees-list');
     }
 
     public function addStudentFeesAmount($transcation_id)
@@ -293,7 +297,7 @@ class EkpayPaymentController extends Controller
     public function ekPayCancel(Request $request)
     {
 
-        return $request->all();
+        // return $request->all();
         $transiction_no = $request->transId;
         $date = date('Y-m-d');
         $userName = 'bbs-test';
@@ -313,7 +317,7 @@ class EkpayPaymentController extends Controller
             "username":"' . $userName . '",
             "trnx_id": "' . $request->transId . '",
             "trans_date": "' . $date . '"
-        }',
+            }',
             CURLOPT_HTTPHEADER => array(
                 'Accept: application/json',
                 'Content-Type: application/json'
@@ -326,22 +330,14 @@ class EkpayPaymentController extends Controller
 
         // return $res;
 
-        DB::table('citizen_payments')->where('transiction_no', $transiction_no)->update([
+        DB::table('ekpay_payment_history')->where('ekpay_transiction_no', $transiction_no)->update([
             'payment_details' => $response,
             'status' => 2, // status 0=unpaid, 1=paid 2=Cancel
             'updated_at' => now()
         ]);
 
-        $application_id = DB::table('citizen_payments')->where('transiction_no', $transiction_no)->first()->application_id;
-
-        $this->paymentStatus($application_id, 0);
-
-        DB::table('companyinfo')->where('application_id', $application_id)->update([
-            'payment_status' => 0,
-        ]);
-
-
-        return redirect()->route('home')->with('message', 'Payment Cancelled');
+        Toastr::error('Payment Cancelled', 'Failed');
+        return redirect()->route('fees.student-fees-list');
     }
 
 
